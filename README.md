@@ -11,6 +11,7 @@
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday_info|date|null: false|
+|introduction|text|null: false|
 |address_id|reference|null: false, foreign_key: true|
 |rate_id|reference|null: false, foreign_key: true|
 |point|integer|null: false|

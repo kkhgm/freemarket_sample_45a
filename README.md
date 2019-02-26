@@ -3,13 +3,13 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, unique: true|
+|nickname|string|null: false, unique: true, index: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |last_name|string|null: false|
 |first_name|string|null: false|
-|last_name_katakana|string|null: false|
-|first_name_katakana|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
 |birthday_info|date|null: false|
 |address_id|reference|null: false, foreign_key: true|
 |rate_id|reference|null: false, foreign_key: true|
@@ -36,6 +36,7 @@
 |street|string|null: false|
 |building|string|
 |phone_number|string|
+|user_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -46,6 +47,7 @@
 |------|----|-------|
 |title|string|null: false|
 |text|text|null: false|
+|user_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -55,6 +57,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |title|string|null: false|
+|user_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -63,19 +66,24 @@
 ## ratesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false|
+|status|integer|null: false|
 |user_id|reference|null: false, foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
+|trade_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
+- belongs_to :item
+- belongs_to :trade
 ***
 
 ## itemcommentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|string|null: false|
+|user_id|reference|null: false, foreign_key: true|
 |item_id|reference|null: false, foreign_key: true|
-|seller_id|reference|null: false, foreign_key: true|
-|buyer_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -85,15 +93,16 @@
 ## tradesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|name|string|null: false, index: true|
 |status|string|null: false|
 |item_id|reference|null: false, foreign_key: true|
-|seller_id|reference|null: false, foreign_key: true|
-|buyer_id|reference|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - belongs_to :item
 - has_many :tradecomments
+- belongs_to :rate
 ***
 
 ## tradecommentsテーブル
@@ -120,11 +129,13 @@
 |shipping_id|reference|null: true, foreign_key: true|
 |seller_id|reference|null: false, foreign_key: true|
 |buyer_id|reference|null: false, foreign_key: true|
+|rate_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_many :item_comments
 - belongs_to :trade
+- belongs_to :rate
 - belongs_to :shipping
 - has_many :item_images
 - has_many :categories
@@ -139,6 +150,7 @@
 |shipping_charge|string|null: false|
 |ship_from_region|string|null: false|
 |shipping_date|string|null: false|
+|item_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -149,7 +161,6 @@
 |------|----|-------|
 |image|string|null: false|
 |item_id|reference|null: false, foreign_key: true|
-|seller_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -160,6 +171,7 @@
 |------|----|-------|
 |name|string|null: false, unique: true|
 |ancestry|string|null: false, unique: true|
+|item_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -170,6 +182,7 @@
 |------|----|-------|
 |name|string|null: false, unique: true|
 |category_id|reference|null: false, foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -180,6 +193,7 @@
 |------|----|-------|
 |name|string|null: false, unique: true|
 |category_id|reference|null: false, foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item

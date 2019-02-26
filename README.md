@@ -27,7 +27,7 @@
 - belongs_to :buyer, class_name: "User"
 ***
 
-## addressテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |zip_code|string|null: false|
@@ -177,10 +177,10 @@
 - belongs_to :item
 ***
 
-## brandテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true|
+|name|string|null: false, unique: true, index: true|
 |category_id|reference|null: false, foreign_key: true|
 |item_id|reference|null: false, foreign_key: true|
 

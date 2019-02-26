@@ -182,8 +182,11 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true, index: true|
-|category_id|reference|null: false, foreign_key: true|
-|item_id|reference|null: false, foreign_key: true|
+|category_id|reference|null: false, foreign_key: true, index: false|
+|item_id|reference|null: false, foreign_key: true, index: false|
+
+### unique_index
+add_index :brands, [:item_id, :category_id], unique: true
 
 ### Association
 - belongs_to :item

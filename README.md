@@ -19,7 +19,7 @@
 
 ### Association
 - has_many :items
-- belongs_to :address
+- belongs_to :address, dependent: :destroy
 - has_many :news
 - has_many :todos
 - has_many :rates
@@ -88,7 +88,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :item
+- belongs_to :item, dependent: :destroy
 ***
 
 ## tradesテーブル
@@ -164,7 +164,7 @@
 |item_id|reference|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :item
+- belongs_to :item, dependent: :destroy
 ***
 
 ## categoriesテーブル

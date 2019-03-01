@@ -9,5 +9,118 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header
+      .header
+        .header_box
+          .header_box__logo-and-input
+            = image_tag("mercari_logo_horizontal",:class => "header_box__logo-and-input__logo" )
+            %form.header_box__logo-and-input__form
+              %input{class: "header_box__logo-and-input__form__input", placeholder: "キーワードから探す"}
+              %input{type: "submit", id: "header_box__logo-and-input__form__input", value: "キーワードから探す", class: "header_box__logo-and-input__form__input__search"}
+              %label{for: "header_box__logo-and-input__form__input"}
+                = fa_icon "search", :class => "header_box__logo-and-input__form__input__search_btn"
+          .header_box__how-to__look-for
+            %ul.header_box__how-to__look-for_list
+              %li
+                %a.header_box__how-to__look-for_list_btn カテゴリーから探す
+              %li
+                %a.header_box__how-to__look-for_list_btn ブランドから探す
+          .header_box__userbox
+            %ul.header_box__userbox_user
+              %li
+                %a.header_box__userbox_user_login ログイン
+              %li
+                %a.header_box__userbox_user_signup 新規会員登録
     = yield
+
     %footer
+      .footer
+        .footer__contents
+          .footer__contents__links
+            %h4.footer__contents__links_title メルカリについて
+            %ul
+              %li.footer__contents__links_link
+                %a 会社概要（運営会社）
+              %li.footer__contents__links_link
+                %a プライバシーポリシー
+              %li.footer__contents__links_link
+                %a メルカリ利用規約
+              %li.footer__contents__links_link
+                %a 有償ポイントに関する特約
+              %li.footer__contents__links_link
+                %a あんしんスマホサポート制度に関する利用規約
+              %li.footer__contents__links_link
+                %a コンプライアンスポリシー
+              %li.footer__contents__links_link
+                %a 個人データの安全管理に係る基本方針
+              %li.footer__contents__links_link
+                %a 特定商取引に関する表記
+              %li.footer__contents__links_link
+                %a 資金決済法に基づく表示
+              %li.footer__contents__links_link
+                %a 法令遵守と犯罪抑止のために
+              %li.footer__contents__links_link
+                %a 採用情報
+          .footer__contents__links
+            %h4.footer__contents__links_title メルカリを見る
+            %ul
+              %li.footer__contents__links_link
+                %a カテゴリー一覧
+              %li.footer__contents__links_link
+                %a ブランド一覧
+              %li.footer__contents__links_link
+                %a 出品地域一覧
+              %li.footer__contents__links_link
+                %a 公式ブログ
+              %li.footer__contents__links_link
+                %a 公式Twitter
+              %li.footer__contents__links_link
+                %a 公式Facebook
+          .footer__contents__links
+            %h4.footer__contents__links_title ヘルプ＆ガイド
+            %ul
+              %li.footer__contents__links_link
+                %a メルカリガイド
+              %li.footer__contents__links_link
+                %a メルカリロゴ利用ガイドライン
+              %li.footer__contents__links_link
+                %a お知らせ
+              %li.footer__contents__links_link
+                %a らくらくメルカリ便とは
+              %li.footer__contents__links_link
+                %a ゆうゆうメルカリ便とは
+              %li.footer__contents__links_link
+                %a 大型らくらくメルカリ便とは
+              %li.footer__contents__links_link
+                %a 車体取引ガイド
+              %li.footer__contents__links_link
+                %a 返品・返金ポリシー
+              %li.footer__contents__links_link
+                %a メルカリあんしん・あんぜん宣言！
+              %li.footer__contents__links_link
+                %a 偽ブランド品撲滅への取り組み
+              %li.footer__contents__links_link
+                %a メルカリボックス
+          .footer__contents__links
+            %h4.footer__contents__links_title 国
+            %ul
+              %li.footer__contents__links_link
+                %a
+                = image_tag("flag_us", :class => "footer__contents__links_link_country")
+                United States
+              %li.footer__contents__links_link
+                %a
+                = image_tag("flag_uk", :class => "footer__contents__links_link_country")
+                United Kingdom
+              %li.footer__contents__links_link
+                %a
+                = image_tag("flag_jp", :class => "footer__contents__links_link_country")
+                日本
+        .footer__logo
+          %a
+            = embedded_svg("logo-white.svg", :class => "footer__logo_image")
+          %p.footer__logo_text
+            %small ©️2019 Mercari
+
+  %a.to-sell-btn
+    .to-sell-btn_text 出品
+    =fa_icon "camera", :class => "to-sell-btn_icon"

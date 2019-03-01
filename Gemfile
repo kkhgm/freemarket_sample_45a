@@ -77,4 +77,6 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
-
+gem 'haml-rails'
+gem 'erb2haml'
+gem "font-awesome-rails"

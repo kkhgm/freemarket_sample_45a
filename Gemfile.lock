@@ -98,7 +98,6 @@ GEM
     erb2haml (0.1.5)
       html2haml
     erubi (1.8.0)
-<<<<<<< HEAD
     excon (0.62.0)
     execjs (2.7.0)
     ffi (1.10.0)
@@ -243,13 +242,10 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-<<<<<<< HEAD
     sshkit (1.18.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-=======
     temple (0.8.0)
->>>>>>> yu40ta/master
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -289,13 +285,10 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
   fog-aws
-=======
   erb2haml
   font-awesome-rails
   haml-rails
->>>>>>> yu40ta/master
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mini_magick

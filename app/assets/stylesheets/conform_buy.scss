@@ -1,0 +1,165 @@
+body{
+  background-color: #F5F5F5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+.conform-info__header{
+  height: 128px;
+  width:100%;
+  text-align: center;
+  .mercari-icon{
+    margin-top: 40px;
+    width:185px;
+    height: 49px;
+    line-height:49px;
+  }
+}
+
+.main{
+  background-color: white;
+  width:700px;
+  margin: 0 auto;
+  h1{
+    text-align:center;
+    height: 97px;
+    line-height:97px;
+    border-bottom: 1px solid #F5F5F5;
+    font-size: 22px;
+    font-weight: bold;
+    }
+    &__item{
+      width: 320px;
+      margin: 0 auto;
+      &__info{
+        text-align: center;
+        &__image{
+        text-align: center;
+        margin-top: 24px;
+        }
+        &__item-name{
+          margin-top: 12px;
+          font-size: 16px;
+          }
+        &__price{
+          margin-top: 12px;
+          &__item-price{
+            font-size: 28px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+          }
+          &__send-price{
+            font-size: 14px;
+            display: inline-block;
+          }
+        }
+        &__conform-point{
+          margin-top: 12px;
+          &__no-point{
+            height: 48px;
+            background-color: #ccc;
+            margin: 0 auto;
+            line-height:48px;
+            font-size: 14px;
+          }
+        }
+        &__amount-price{
+            padding: 20px 0;
+            font-size: 28px;
+            font-weight: bold;
+            &__payment{
+            float: left;
+            }
+            &__en{
+            text-align: right;
+            }
+        }
+      }
+
+      &__button{
+        clear: both;
+        height: 48px;
+        font-size: 14px;
+        background-color: red;
+        text-align: center;
+        a{
+        text-decoration: none;
+        color: white;
+        line-height:48px;
+        }
+      }
+    }
+
+    &__delivery{
+      margin-top: 20px;
+      border-top: 1px solid #f5f5f5;
+        &__info{
+        height: 146px;
+        width:320px;
+        padding-top: 20px;
+        line-height: 1.4;
+        margin: 0 auto;
+        &__inner{
+          font-size: 14px;
+          height: 76px;
+          padding-top: 3px
+        }
+        a{
+          display: block;
+          text-align: right;
+          text-decoration: none;
+          color: #0099e8;
+          }
+      }
+    }
+
+    &__container{
+      border-top: 1px solid #F5F5F5;
+      &__payment{
+        width:320px;
+        height: 146px;
+        margin: auto;
+        &__info{
+          margin-top: 20px;
+          font-size: 14px;
+          height: 76px;
+          .visa-icon{
+            margin-top: 5px;
+            height: 15px;
+            width: 49px;
+            }
+          a{
+            display: block;
+            text-align: right;
+            text-decoration: none;
+            color: #0099e8;
+          }
+        }
+      }
+    }
+}
+
+.conform-info__footer{
+  height: 220px;
+  width:100%;
+  text-align: center;
+  padding: 20px;
+    li {
+      font-size: 12px;
+      display: inline-block;
+      padding: 0 5px;
+      a{
+       text-decoration: none;
+      }
+    }
+    &__icon{
+      margin: 30px auto 10px;
+      width: 80px;
+      height: 65px;
+    }
+    small {
+      margin: 0 auto;
+      font-size: 12px;
+    }
+}
+

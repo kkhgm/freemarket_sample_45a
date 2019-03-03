@@ -1,0 +1,10 @@
+= form_for @item, url: {controller: :items, action: :new } do |f|
+	= f.file_field :image
+	= f.text_field :name
+	= f.text_field :description
+	= f.text_field :condition
+	= f.text_field :shipping_charge
+	= f.text_field :shipping_method
+	= f.text_field :ship_from_region
+	= f.text_field :shipping_date
+	= f.text_field :price

@@ -1,24 +1,194 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false, unique: true, index: true|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birthday_info|date|null: false|
+|icon|string|
+|introduction|text|
+|point|integer|null: false|
+|proceed|integer|null: false|
+|bought_items|reference|null: false, foreign_key: true|
+|selling_items|reference|null: false, foreign_key: true|
+|sold_items|reference|null: false, foreign_key: true|
 
-Things you may want to cover:
+### Association
+- has_many :items
+- belongs_to :address, dependent: :destroy
+- has_many :news
+- has_many :todos
+- has_many :rates
+- has_many :trades
+- has_many :item_comments
+- has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
+- has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
+- has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
+***
 
-* Ruby version
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|zip_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|street|string|null: false|
+|building|string|
+|phone_number|string|
 
-* System dependencies
+### Association
+- belongs_to :user
+***
 
-* Configuration
+## newsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|text|text|null: false|
+|user_id|reference|null: false, foreign_key: true|
 
-* Database creation
+### Association
+- belongs_to :user
+***
 
-* Database initialization
+## todosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|user_id|reference|null: false, foreign_key: true|
 
-* How to run the test suite
+### Association
+- belongs_to :user
+***
 
-* Services (job queues, cache servers, search engines, etc.)
+## ratesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|status|integer|null: false|
+|user_id|reference|null: false, foreign_key: true|
 
-* Deployment instructions
+### Association
+- belongs_to :user
+- belongs_to :trade
+***
 
-* ...
+## itemcommentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|comment|string|null: false|
+|item_id|reference|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item, dependent: :destroy
+***
+
+## tradesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+|status|string|null: false|
+|item_id|reference|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_many :tradecomments
+- belongs_to :rate
+***
+
+## tradecommentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|comment|string|null: false|
+|trade_id|reference|null: false, foreign_key: true|
+
+### Association
+- belongs_to :trade
+***
+
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+|description|string|null: false|
+|condition|string|null: false|
+|shipping_method|string|null: false|
+|shipping_charge|string|null: false|
+|ship_from_region|string|null: false|
+|shipping_date|string|null: false|
+|price|integer|null: false|
+|seller_id|reference|null: false, foreign_key: true|
+|buyer_id|reference|null: false, foreign_key: true|
+|size_id|reference|null: true, foreign_key: true|
+|brand_id|reference|null: true, foreign_key: true|
+
+### Association
+- belongs_to :user
+- has_many :item_images
+- has_many :item_categories
+- has_many :categories, through: :item_categories
+- has_many :item_comments
+- belongs_to :trade
+- belongs_to :size
+- belongs_to :brand
+- belongs_to :seller, class_name: "User"
+- belongs_to :buyer, class_name: "User"
+***
+
+## itemimagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|string|null: false|
+|item_id|reference|null: false, foreign_key: true|
+
+### Association
+- belongs_to :item, dependent: :destroy
+***
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|parent_id|integer|
+|name|string|null: false, unique: true|
+
+### Association
+- has_many :item_categories
+- has_many :items, through: :item_categories
+***
+
+## item_categoriesテーブル
+|item_id|reference|null: false, foreign_key: true|
+|category_id|reference|null: false, foreign_key: true|
+
+### Association
+- belongs_to :item
+- belongs_to :category
+***
+
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true, index: true|
+
+### Association
+- has_many :items
+***
+
+## sizesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+
+### Association
+- has_many :items
+***

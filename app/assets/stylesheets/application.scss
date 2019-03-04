@@ -1,9 +1,7 @@
-/*
- *= require font-awesome
- */
-
 @import './reset';
 @import "./items";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 * {
   box-sizing: border-box;

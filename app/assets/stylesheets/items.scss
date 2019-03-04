@@ -120,7 +120,7 @@ body{
 	width: 100%;
 	&__top__image-box {
 		height: 390px;
-		background-image: url("top_image1");
+		background-image: url(/public/images/top_image1.jpg);
 		background-position: center center;
 	}
 	&__container{
@@ -237,7 +237,7 @@ body{
 	}
 	&__under__image-box{
 		height: 260px;
-		background-image: url("under_image");
+		background-image: url(/images/under_image.jpg);
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;

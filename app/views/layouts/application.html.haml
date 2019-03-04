@@ -17,7 +17,7 @@
               %input{class: "header_box__logo-and-input__form__input", placeholder: "キーワードから探す"}
               %input{type: "submit", id: "header_box__logo-and-input__form__input", value: "キーワードから探す", class: "header_box__logo-and-input__form__input__search"}
               %label{for: "header_box__logo-and-input__form__input"}
-                = fa_icon "search", :class => "header_box__logo-and-input__form__input__search_btn"
+                = icon "fas", "search", :class => "header_box__logo-and-input__form__input__search_btn"
           .header_box__how-to__look-for
             %ul.header_box__how-to__look-for_list
               %li
@@ -122,4 +122,4 @@
 
   %a.to-sell-btn
     .to-sell-btn_text 出品
-    =fa_icon "camera", :class => "to-sell-btn_icon"
+    = icon "fas", "camera", :class => "to-sell-btn_icon"

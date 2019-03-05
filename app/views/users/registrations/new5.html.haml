@@ -1,7 +1,7 @@
 .signin
   .signup__header
     .signup__header__mercari-logo
-      = link_to image_tag("mercari_logo_horizontal.png")
+      = link_to image_tag("logo.svg")
     .signup__header__progress
       %ul.progress
         %li.through
@@ -26,5 +26,5 @@
       %p ありがとうございます。
       %p 会員登録が完了しました。
       .actions
-        = button_to "メルカリを始める", new_user_registration_path, method: :get, class: "btn action-btn"
+        = button_to "メルカリを始める", root_path, method: :get, class: "btn action-btn"
   = render "users/shared/footer"

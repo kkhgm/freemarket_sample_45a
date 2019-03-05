@@ -1,7 +1,7 @@
 .signin
   .signup__header
     .signup__header__mercari-logo
-      = link_to image_tag("mercari_logo_horizontal.png")
+      = link_to image_tag("logo.svg")
     .signup__header__progress
       %ul.progress
         %li.through
@@ -30,13 +30,13 @@
       .field
         %p SMSで届いた認証番号を入力してください
       .actions
-        = button_to "認証して完了", new3_user_registration_path, method: :get, class: "btn action-btn"
+        = button_to "認証して完了", new_address_path, method: :get, class: "btn action-btn"
     .signup__panel__field2
       .field
         %h3 30秒たっても認証番号が届かない方へ
         %p 電話で認証番号を聞くこともできます。
       .actions
-        = button_to "電話で認証番号を聞く（無料通話）", new_user_registration_path, {method: :get, class: "btn action-btn"}
+        = button_to "電話で認証番号を聞く（無料通話）", new_address_path, {method: :get, class: "btn action-btn"}
     .signup__panel__field2
       .field
         %h3 認証番号を再送することもできます。もう一度電話番号を入力して下さい。

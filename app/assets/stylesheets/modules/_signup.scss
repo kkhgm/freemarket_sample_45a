@@ -115,7 +115,7 @@
       .birth-field {
         position: relative;
         select {
-          width: 40%;
+          width: 47%;
           height: 45px;
           margin-top: 8px;
           padding-left: 16px;
@@ -133,9 +133,21 @@
         .select-icon {
           font-size: 30px;
           color: #777;
-          position: absolute;
-          right: 205px;
-          top: 15px;
+          .select-icon1 {
+            right: 185px;
+            top: 15px;
+            position: absolute;
+          }
+          .select-icon2 {
+            right: 185px;
+            top: 70px;
+            position: absolute;
+          }
+          .select-icon3 {
+            right: 185px;
+            top: 123px;
+            position: absolute;
+          }
         }
       }
       .prefecture-field {

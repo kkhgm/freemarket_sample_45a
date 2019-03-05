@@ -1,0 +1,70 @@
+%body
+%header
+  .conform-info__header
+    =link_to "" do
+      = embedded_svg("logo.svg", class:"mercari-icon")
+
+.main
+  %h1 購入を確定しますか？
+  %section.main__item
+    .main__item__info
+      .main__item__info__image
+        = image_tag("m30685372065_1.jpg", :size => "148x148")
+      .main__item__info__item-name
+        %p アディダスオリジナル スカジャン風
+      .main__item__info__price
+        .main__item__info__price__item-price
+          %p¥5,800
+        .main__item__info__price__send-price
+          %p 送料込み
+      .main__item__info__conform-point
+        .main__item__info__conform-point__no-point
+          %p ポイントはありません
+      .main__item__info__amount-price
+        .main__item__info__amount-price__payment
+          %p 支払い金額
+        .main__item__info__amount-price__en
+          %p¥ 5,800
+    .main__item__button
+      =link_to "購入する", "/", method:""
+
+  %section.main__delivery
+    .main__delivery__info
+      .main__delivery__info__inner
+        %h3 配送先
+        .main__delivery__info__inner__zipcode
+          %p 590-0012
+        .main__delivery__info__inner__address
+          %p 大阪府大阪市都島区
+        .main__delivery__info__inner__name
+          %p 樋上光輝
+        =link_to  "", method:"" do
+          %span 変更する＞
+
+  %section.main__container
+    .main__container__payment
+      .main__container__payment__info
+        %h3 支払い方法
+        .main__container__payment__info__card-no
+          %p ********123
+        .main__container__payment__info__card-date
+          %p 12/23
+        = embedded_svg("visa.svg", class:"visa-icon")
+        =link_to  "", method:"" do
+          %span 変更する＞
+
+%footer
+  .conform-info__footer
+    %ul
+      %li.conform-info__footer__pravacy
+        =link_to "" "プライバシーポリシー"
+      %li.conform-info__footer__rule
+        =link_to "" "メルカリ利用規約"
+      %li.conform-info__footer__commerce-rule
+        =link_to "" "特定商取引に関する表記"
+    .conform-info__footer__icon
+      =link_to "", method:"" do
+        = embedded_svg("logo-gray.svg", class:"mercari-grey")
+    %small ©️2019 Mercari
+
+

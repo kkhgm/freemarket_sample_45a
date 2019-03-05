@@ -10,20 +10,20 @@
       .item-content__photos
         .item-content__photo
           .item-content__photo.active
-            = image_tag("guitar.jpg", size: "300x300")
+            = image_tag("guitar.jpg", class: "display-image" )
           .item-content__photo.other
             .item-content__photo.small.active
-              = image_tag("guitar.jpg", size: "60x60")
+              = image_tag("guitar.jpg", class: "small-image" )
             .item-content__photo.small
-              = image_tag("guitar.jpg", size: "60x60")
+              = image_tag("guitar.jpg", class: "small-image")
             .item-content__photo.small
-              = image_tag("guitar.jpg", size: "60x60")
+              = image_tag("guitar.jpg", class: "small-image")
             .item-content__photo.small
-              = image_tag("guitar.jpg", size: "60x60")
+              = image_tag("guitar.jpg", class: "small-image")
             .item-content__photo.small
-              = image_tag("guitar.jpg", size: "60x60")
+              = image_tag("guitar.jpg", class: "small-image")
             .item-content__photo.small
-              = image_tag("guitar.jpg", size: "60x60")
+              = image_tag("guitar.jpg", class: "small-image")
       / 出品時の登録情報
       %table.item-content__detail-table
         %tbody.item-content__detail-table__tbody
@@ -175,7 +175,7 @@
         %section.item-other__user-items__content__box
           = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", size: "220x220")
+              = image_tag("guitar.jpg", class: "item-image")
             .item-other__user-items__content__box__body
               %h3.item-other__user-items__content__box__body__name
                 そこそこのギター
@@ -191,7 +191,7 @@
         %section.item-other__user-items__content__box
           = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", size: "220x220")
+              = image_tag("guitar.jpg", class: "item-image")
             .item-other__user-items__content__box__body
               %h3.item-other__user-items__content__box__body__name
                 まあまあのギター
@@ -207,7 +207,7 @@
         %section.item-other__user-items__content__box
           = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", size: "220x220")
+              = image_tag("guitar.jpg", class: "item-image")
               .item-other__user-items__content__box__photo--sold-out
             .item-other__user-items__content__box__body
               %h3.item-other__user-items__content__box__body__name
@@ -224,7 +224,7 @@
         %section.item-other__user-items__content__box
           = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", size: "220x220")
+              = image_tag("guitar.jpg", class: "item-image")
             .item-other__user-items__content__box__body
               %h3.item-other__user-items__content__box__body__name
                 それなりのギター
@@ -244,7 +244,7 @@
         %section.item-other__user-items__content__box
           = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", size: "220x220")
+              = image_tag("guitar.jpg", class: "item-image")
             .item-other__user-items__content__box__body
               %h3.item-other__user-items__content__box__body__name
                 そこそこのギター
@@ -260,7 +260,7 @@
         %section.item-other__user-items__content__box
           = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", size: "220x220")
+              = image_tag("guitar.jpg", class: "item-image")
             .item-other__user-items__content__box__body
               %h3.item-other__user-items__content__box__body__name
                 そこそこのギター
@@ -276,7 +276,7 @@
         %section.item-other__user-items__content__box
           = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", size: "220x220")
+              = image_tag("guitar.jpg", class: "item-image")
             .item-other__user-items__content__box__body
               %h3.item-other__user-items__content__box__body__name
                 そこそこのギター

@@ -1,0 +1,43 @@
+.payment {
+  padding-top: 24px;
+  background-color: #eee;
+  height: 100%;
+  &__container {
+    @include single-container;
+    &__title {
+      height: 50px;
+      width: 100%;
+      border-bottom: 1px solid #eee;
+      h2 {
+        line-height: 50px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+      }
+    }
+    &__box {
+      width: 320px;
+      margin: 50px auto 0;
+      p{
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .actions{
+        margin-top: 20px;
+      }
+    }
+    &__about{
+        border-top: 1px solid #eee;
+        height: 70px;
+        text-align: right;
+        margin: 40px;
+        padding-top: 20px;
+      a{
+        text-decoration: none;
+        color:#0099e8;
+        font-size: 15px;
+      }
+    }
+  }
+}

@@ -31,7 +31,7 @@
             %th.item-content__detail-table__tbody__th
               出品者
             %td.item-content__detail-table__tbody__td
-              = link_to "ユーザーネーム", "/items/show", method: :get, class: "user-name link"
+              = link_to "ユーザーネーム", item_path, method: :get, class: "user-name link"
               .item-content__detail-table__tbody__td__rating
                 .item-content__detail-table__tbody__td__icon
                   = icon "fas", "laugh", class: "good-icon"
@@ -49,12 +49,12 @@
             %th.item-content__detail-table__tbody__th
               カテゴリー
             %td.item-content__detail-table__tbody__td
-              = link_to "親カテゴリー", "/items/show", method: :get, class: "item-content__detail-table__tbody__td__category link"
-              = link_to "/items/show", method: :get, class: "item-content__detail-table__tbody__td__category link" do
+              = link_to "親カテゴリー", item_path, method: :get, class: "item-content__detail-table__tbody__td__category link"
+              = link_to item_path, method: :get, class: "item-content__detail-table__tbody__td__category link" do
                 = icon "fas", "angle-right"
                 %span
                   子カテゴリー
-              = link_to "/items/show", method: :get, class: "item-content__detail-table__tbody__td__category link" do
+              = link_to item_path, method: :get, class: "item-content__detail-table__tbody__td__category link" do
                 = icon "fas", "angle-right"
                 %span
                   孫カテゴリー
@@ -62,7 +62,7 @@
             %th.item-content__detail-table__tbody__th
               ブランド
             %td.item-content__detail-table__tbody__td
-              = link_to "ブランド名", "/items/show", method: :get, class: "brand-name link"
+              = link_to "ブランド名", item_path, method: :get, class: "brand-name link"
           %tr.item-content__detail-table__tbody__tr
             %th.item-content__detail-table__tbody__th
               商品のサイズ
@@ -91,7 +91,7 @@
             %th.item-content__detail-table__tbody__th
               配送元地域
             %td.item-content__detail-table__tbody__td
-              = link_to "●●県", "/items/show", method: :get, class: "prefecture link"
+              = link_to "●●県", item_path, method: :get, class: "prefecture link"
           %tr.item-content__detail-table__tbody__tr
             %th.item-content__detail-table__tbody__th
               発送日の目安
@@ -107,7 +107,7 @@
             （税込）
           %span.item-content__price__box__shipping-charge
             送料込み（可変値）
-      = link_to "購入画面に進む", "/items/show", method: :get,  class: "item-content__buy-btn btn btn-red link"
+      = link_to "購入画面に進む", item_path, method: :get,  class: "item-content__buy-btn btn btn-red link"
       / 説明文
       .item-content__description
         %p.item-content__description-inner
@@ -122,12 +122,12 @@
             %span.item-content__item-btn__left__like-btn__num
               9
           .item-content__item-btn__left__report
-            = link_to "/items/show", method: :get, class: "link" do
+            = link_to item_path, method: :get, class: "link" do
               = icon "far", "flag", class: "item-content__item-btn__left__report__icon"
               %span.item-content__item-btn__left__report__text
                 不適切な商品の報告
         .item-content__item-btn__right
-          = link_to "/items/show", method: :get, class: "item-content__item-btn__right__icon link" do
+          = link_to item_path, method: :get, class: "item-content__item-btn__right__icon link" do
             = icon "fas", "lock"
             %span.item-content__item-btn__right__text
               あんしん・あんぜんへの取り組み
@@ -140,18 +140,18 @@
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         / f.text-field使う
         %textarea.item-comment-container__content__form__textarea.textarea-default
-        = link_to "/items/show", method: :get, class: "item-comment-container__content__form__submit btn btn-gray link" do
+        = link_to item_path, method: :get, class: "item-comment-container__content__form__submit btn btn-gray link" do
           %p.item-comment-container__content__form__submit__text
             コメントする
   / 前後ページリンク
   %ul.item-page-link
     %li.item-page-link__prev
-      = link_to "/items/show", method: :get, class: "link" do
+      = link_to item_path, method: :get, class: "link" do
         = icon "fas", "angle-left"
         %span
           ブロッコリー史上最も新鮮なブロッコリー
     %li.item-page-link__next
-      = link_to "/items/show", method: :get, class: "link" do
+      = link_to item_path, method: :get, class: "link" do
         %span
           意味深なカリフラワー
         = icon "fas", "angle-right"
@@ -159,21 +159,21 @@
   .item-sns
     %ul.item-sns__list
       %li.item-sns__list__icon
-        = link_to "/items/show", method: :get, class: "link social-link" do
+        = link_to item_path, method: :get, class: "link social-link" do
           = icon "fab", "facebook-square", class: "item-sns__list__icon--facebook"
       %li.item-sns__list__icon
-        = link_to "/items/show", method: :get, class: "link social-link" do
+        = link_to item_path, method: :get, class: "link social-link" do
           = icon "fab", "twitter-square", class: "item-sns__list__icon--twitter"
       %li.item-sns__list__icon
-        = link_to "/items/show", method: :get, class: "link social-link" do
+        = link_to item_path, method: :get, class: "link social-link" do
           = icon "fab", "pinterest-square", class: "item-sns__list__icon--pinterest"
   .item-other
     %section.item-other__user-items
       %h2.item-other__user-items__head
-        = link_to "ユーザーネームさんのその他の出品", "/items/show", method: :get, class: "link item-link"
+        = link_to "ユーザーネームさんのその他の出品", item_path, method: :get, class: "link item-link"
       .item-other__user-items__content
         %section.item-other__user-items__content__box
-          = link_to "/items/show", method: :get, class: "link item-link" do
+          = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
               = image_tag("guitar.jpg", size: "220x220")
             .item-other__user-items__content__box__body
@@ -189,7 +189,7 @@
                 %p.item-other__user-items__content__box__num__tax
                   (税込)
         %section.item-other__user-items__content__box
-          = link_to "/items/show", method: :get, class: "link item-link" do
+          = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
               = image_tag("guitar.jpg", size: "220x220")
             .item-other__user-items__content__box__body
@@ -205,7 +205,7 @@
                 %p.item-other__user-items__content__box__num__tax
                   (税込)
         %section.item-other__user-items__content__box
-          = link_to "/items/show", method: :get, class: "link item-link" do
+          = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
               = image_tag("guitar.jpg", size: "220x220")
               .item-other__user-items__content__box__photo--sold-out
@@ -222,7 +222,7 @@
                 %p.item-other__user-items__content__box__num__tax
                   (税込)
         %section.item-other__user-items__content__box
-          = link_to "/items/show", method: :get, class: "link item-link" do
+          = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
               = image_tag("guitar.jpg", size: "220x220")
             .item-other__user-items__content__box__body
@@ -239,10 +239,10 @@
                   (税込)
     %section.item-other__same-name-items
       %h2.item-other__user-items__head
-        = link_to "同じ商品名（同じカテゴリー名） その他の商品", "/items/show", method: :get, class: "link item-link"
+        = link_to "同じ商品名（同じカテゴリー名） その他の商品", item_path, method: :get, class: "link item-link"
       .item-other__user-items__content
         %section.item-other__user-items__content__box
-          = link_to "/items/show", method: :get, class: "link item-link" do
+          = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
               = image_tag("guitar.jpg", size: "220x220")
             .item-other__user-items__content__box__body
@@ -258,7 +258,7 @@
                 %p.item-other__user-items__content__box__num__tax
                   (税込)
         %section.item-other__user-items__content__box
-          = link_to "/items/show", method: :get, class: "link item-link" do
+          = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
               = image_tag("guitar.jpg", size: "220x220")
             .item-other__user-items__content__box__body
@@ -274,7 +274,7 @@
                 %p.item-other__user-items__content__box__num__tax
                   (税込)
         %section.item-other__user-items__content__box
-          = link_to "/items/show", method: :get, class: "link item-link" do
+          = link_to item_path, method: :get, class: "link item-link" do
             %figure.item-other__user-items__content__box__photo
               = image_tag("guitar.jpg", size: "220x220")
             .item-other__user-items__content__box__body

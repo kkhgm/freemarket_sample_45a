@@ -1,51 +1,69 @@
 .contents
 	.contents__title
 		%h2 商品の情報を入力
-	= form_for @item, url: {controller: :items, action: :new } do |f|
+	= form_for @item, url: {controller: :items, action: :create } do |f|
 		.contents__image
 			= f.file_field :image
 		.contents__item-info
 			.contents__item-info_name
 				%h4 商品名
 				%span 必須
-				= f.text_field :name, :class => "contents__item-info_name_input"
+				= f.text_field :name, :class => "contents__item-info_name_input", :placeholder => "商品名（必須 40文字まで)"
 			.contents__item-info_description
 				%h4 商品の説明
 				%span 必須
-				= f.text_field :description, :class => "contents__item-info_description_input"
-		.contents__item-about
+				= f.text_area :description, :class => "contents__item-info_description_input", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => 5;
+		.contents__item-about.clearfix
 			%h3 商品の詳細
-			.contents__item-about_condition
-				%h4 商品の状態
-				%span 必須
-				= f.select :condition, :class => "contents__item-about_condition_input"
-		.contents__shipping
+			.contents__item-about_box
+				.contents__item-about_box_category
+					%h4 カテゴリー
+					%span 必須
+					= f.select :condition, :class => "contents__item-about_box_condition_input",:prompt => "---"
+				.contents__item-about_box_condition
+					%h4 商品の状態
+					%span 必須
+					= f.select :condition, ["新品、未使用", "未使用に近い","目立った傷や汚れなし", "やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"], :class => "contents__item-about_box_condition_input",:prompt => "---"
+		.contents__shipping.clearfix
 			%h3 配送について
-			.contents__shipping_charge
-				%h4 配送料の負担
-				%span 必須
-				= f.select :shipping_charge, :class => "contents__shipping_charge_input"
-			.contents__shipping_method
-				%h4 配送の方法
-				%span 必須
-				= f.select :shipping_method, :class => "contents__shipping_method_input"
-			.contents__ship_from_region
-				%h4 発送元の地域
-				%span 必須
-				= f.select :ship_from_region, :class => "contents__ship_from_region_input"
-			.contents__shipping_date
-				%h4 発送までの日数
-				%span 必須
-				= f.select :shipping_date, :class => "contents__shipping_date_input"
-		.contents__price
+			.contents__shipping_box
+				.contents__shipping_box_charge
+					%h4 配送料の負担
+					%span 必須
+					= f.select :shipping_charge,[["送料込み（出品者負担）",1],["着払い（購入者負担）",2]], :class => "contents__shipping_box_charge_input",:prompt => "---"
+				/ = if @select == 1
+				.contents__shipping_box_method
+					%h4 配送の方法
+					%span 必須
+					= f.select :shipping_method,["未定","クロネコヤマト","ゆうパック","ゆうメール"], :class => "contents__shipping_box_method_input",:prompt => "---"
+				.contents__shipping_box_ship-from-region
+					%h4 発送元の地域
+					%span 必須
+					= f.select :ship_from_region, @regions.map{|t| [t.name]}, :class => "contents__shipping_box_from-region-input",:prompt => "---"
+				.contents__shipping_box_date
+					%h4 発送までの日数
+					%span 必須
+					= f.select :shipping_date,["1~2日で発送","2~3日で発送","4~7日で発送"], :class => "contents__shipping_box_date_input",:prompt => "---"
+		.contents__price.clearfix
 			%h3 販売価格(300〜9,999,999)
-			%h4 価格
-			%span<> 必須
-			= f.text_field :price, :class => "contents__price_input"
+			.contents__price_box
+				%ul
+					%li.contents__price_box_list_top.clearfix
+						.contents__price_box_list_top_label
+							%h4 価格
+							%span<> 必須
+						.contents__price_box_list_top_right
+							%p ¥
+							= f.text_field :price, :class => "contents__price_box_list_top_right_input", :placeholder =>"例）300"
+					%li.contents__price_box_list
+						%p.contents__price_box_list_text 販売手数料（10%）
+						%p.contents__price_box_list_sales -
+					%li.contents__price_box_list
+						%h5 販売利益
+						%p.contents__price_box_list_sales_under -
 		.contents__submit
-			%p
-			%a<>
-			禁止されている出品、
+			%a<>禁止されている出品
+			、
 			%a<>行為
 			を必ずご確認ください。
 			%br

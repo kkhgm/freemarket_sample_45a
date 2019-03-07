@@ -1,6 +1,6 @@
 $(function(){
 	var html =
-	`<div>contents__shipping_box_method
+	`<div class="contents__shipping_box_method">
 		<h4>配送の方法<span>必須</span></h4>
 		<select class="contents__shipping_box_method_input">
 			<option>---</option>
@@ -9,10 +9,13 @@ $(function(){
 			<option>ゆうパック</option>
 			<option>ゆうメール</option>
 		</select>
-	<div>`
+	<div>`;
 
-	$(".contents__shipping_box_charge_input").change(function(){
-		console.log(1);
-		$(".contents__shipping_box").append(html)
+	$("#item_shipping_charge").on("change", function(){
+		$(".contents__shipping_box_method").remove();
+		var select = $("#item_shipping_charge").val();
+		if(select == 1 || select == 2){
+		$(".contents__shipping_box_sub").append(html)
+		}
 	})
 })

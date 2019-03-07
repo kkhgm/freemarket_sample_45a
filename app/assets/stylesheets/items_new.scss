@@ -42,6 +42,14 @@
 	    font-size: 16px;
 	    line-height: 1.5;
 	    cursor: pointer;
+	    outline: none;
+		-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+		-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+		appearance: none;	/* 標準のスタイルを無効にする */
+
+	    &:focus{
+	    	border: 1px solid #0099e8 ;
+	    }
 	}
 	&__title{
 		text-align: center;
@@ -51,8 +59,26 @@
 		padding: 32px 16px;
 	}
 	&__image{
-		padding: 40px;
 		border-bottom: solid 1px #F5F5F5;
+		padding: 40px;
+		& p{
+			margin-top: 8px;
+			line-height: 1.5;
+		}
+		&_drop-box{
+			&_label{
+			border: 1px dashed #ccc;
+			display: block;
+		    min-height: 162px;
+		    background: #f5f5f5;
+			padding: 40px;
+			margin: 16px auto 0;
+			width: 620px;
+			}
+			&_click{
+				display: none;
+			}
+		}
 	}
 	&__item-info{
 		padding: 40px;
@@ -68,6 +94,10 @@
 			    background: #fff;
 			    line-height: 1.5;
 			    font-size: 16px;
+			    outline-style: none;
+			    &:focus{
+			    	border: 1px solid #0099e8 ;
+			    }
 			}
 		}
 		&_description{
@@ -82,6 +112,10 @@
 			    background: #fff;
 			    font-size: 16px;
 			    border-radius: 4px;
+			    outline-style: none;
+			    &:focus{
+			    	border: 1px solid #0099e8 ;
+			    }
 			}
 		}
 	}
@@ -91,7 +125,11 @@
 		&_box{
 			width: 400px;
 			float: right;
+			&_category{
+				position: relative;
+			}
 			&_condition{
+				position: relative;
 				margin-top: 40px;
 			}
 		}
@@ -103,13 +141,19 @@
 		&_box{
 			width: 400px;
 			float: right;
+			&_charge{
+				position: relative;
+			}
 			&_method{
+				position: relative;
 				margin-top: 40px;
 			}
 			&_ship-from-region{
+				position: relative;
 				margin-top: 40px;
 			}
 			&_date{
+				position: relative;
 				margin-top: 40px;
 			}
 		}
@@ -148,10 +192,14 @@
 					    // position: absolute;
 					    left: 20px;
 					    bottom: 20px ;
+					    outline-style: none;
+					      &:focus{
+						    	border: 1px solid #0099e8 ;
+						    }
 
-				      &::placeholder{
-			    		text-align: right;
-			    		}
+					      &::placeholder{
+				    			text-align: right;
+				    		}
 				    }
 				}
 			}
@@ -211,6 +259,17 @@
 		}
 	}
 }
+
+
+.select_icon{
+	position: absolute;
+	top: 40px;
+	left: 370px;
+	color: #aaa;
+	font-size: 20px;
+	cursor: pointer;
+}
+
 
 .clearfix::after{
 	display: block;

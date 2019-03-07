@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
   def new
   	@item = Item.new
   	@regions = Region.all
-  	@select = params[:shipping_charge]
   end
 
   def create

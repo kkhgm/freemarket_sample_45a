@@ -166,6 +166,9 @@ table, tbody, tr, th, td {
     }
   }
   &__buy-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
     margin: 16px 0 0;
     height: 60px;
     line-height: 60px;

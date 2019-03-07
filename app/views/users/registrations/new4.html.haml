@@ -22,7 +22,7 @@
   .signup__panel
     .signup__panel__title
       %h2 支払い方法
-    .signup__panel__field
+    .signup__panel__field.signup__panel__field1
       .field
         %label カード番号
         %span.required 必須
@@ -35,13 +35,13 @@
         .birth-field
           %select ["--",1,2,3,4,5,6,7,8,9,10,11,12]
           %span.select-icon
-            = fa_icon("angle-down")
+            = icon "fas", "angle-down", class: "select-icon1"
           %span.unit 月
           %br/
         .birth-field
           %select ["--",1,2,3,4,5,6,7,8,9,10,11,12]
           %span.select-icon
-            = fa_icon("angle-down")
+            = icon "fas", "angle-down", class: "select-icon1"
           %span.unit 年
           %br/
       .field

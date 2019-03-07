@@ -22,8 +22,8 @@
   .signup__panel
     .signup__panel__title
       %h2 住所入力
-    = form_for @address do |f|
-      .signup__panel__field
+    = form_for @address, url: address_path, method: :post do |f|
+      .signup__panel__field.signup__panel__field1
         .field
           = f.label :郵便番号
           %span.required 必須
@@ -34,9 +34,9 @@
           %span.required 必須
           %br/
           .birth-field.prefecture-field
-            = f.select :prefecture
+            = f.select :prefecture, @prefectures.map{|t| [t.name]}
             %span.select-icon
-              = fa_icon("angle-down")
+              = icon "fas", "angle-down", class: "select-icon"
         .field
           = f.label :市区町村
           %span.required 必須
@@ -49,9 +49,9 @@
           = f.text_field :street, placeholder: "例）青山1-1-1"
         .field
           = f.label :建物名
-          %span.required.optional 任意
+          %span.optional 任意
           %br/
           = f.text_field :building, placeholder: "例）柳ビル103"
         .actions
-          = button_to "次へ進む", new4_user_registration_path, method: :get, class: "btn action-btn"
+          = button_to "次へ進む", {}, class: "btn action-btn"
   = render "users/shared/footer"

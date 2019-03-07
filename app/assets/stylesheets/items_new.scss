@@ -148,6 +148,7 @@
 			&_method{
 				position: relative;
 				margin-top: 40px;
+				display: none;
 			}
 			&_ship-from-region{
 				position: relative;
@@ -244,6 +245,8 @@
 			line-height: 1.5;
 		}
 		&_go-btn{
+			width: 100%;
+			display: block;
 			text-align: center;
 			color: #fff;
 			background-color: #ea352d;

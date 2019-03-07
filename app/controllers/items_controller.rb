@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
 
   end
 
-  def edit
-
+  def show
   end
 end

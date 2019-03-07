@@ -5,13 +5,125 @@
 		.contents__container__item__box
 			%h3.contents__container__item__box_title レディース新着アイテム
 			.contents__container__item__box__items
-				= render @items
+
+				%section.contents__container__item__box__items__item
+					%a.contents__container__item__box__items__item__link
+						%figure.contents__container__item__box__items__item__link_figure
+							= image_tag("cap", :class => "contents__container__item__box__items__item__link_figure_img")
+					.contents__container__item__box__items__item_text
+						.contents__container__item__box__items__item_text_item-name
+							%h3 kajflkjdslfkalkfdj;fd;askfj;lakjfldka;fkja;kf;salk;aaaaaafd
+						.contents__container__item__box__items__item_text_item-box
+							.contents__container__item__box__items__item_text_item-box_price ¥800
+							.contents__container__item__box__items__item_text_item-box_good
+								= icon "far", "heart", :class => "contents__container__item__box__items__item_text_item-box_good_btn"
+								%span.contents__container__item__box__items__item_text_item-box_good_count 3
+						%p.contents__container__item__box__items__item_text_tax （税込）
+
+				%section.contents__container__item__box__items__item
+					%a.contents__container__item__box__items__item__link
+						%figure.contents__container__item__box__items__item__link_figure
+							= image_tag("cap", :class => "contents__container__item__box__items__item__link_figure_img")
+					.contents__container__item__box__items__item_text
+						.contents__container__item__box__items__item_text_item-name
+							%h3.contents__container__item__box__items__item_text_item-name メルカリ
+						.contents__container__item__box__items__item_text_item-box
+							.contents__container__item__box__items__item_text_item-box_price ¥800
+							.contents__container__item__box__items__item_text_item-box_good
+								= icon "far", "heart", :class => "contents__container__item__box__items__item_text_item-box_good_btn"
+								%span.contents__container__item__box__items__item_text_item-box_good_count 3
+						%p.contents__container__item__box__items__item_text_tax （税込）
+
+				%section.contents__container__item__box__items__item
+					%a.contents__container__item__box__items__item__link
+						%figure.contents__container__item__box__items__item__link_figure
+							= image_tag("cap", :class => "contents__container__item__box__items__item__link_figure_img")
+					.contents__container__item__box__items__item_text
+						.contents__container__item__box__items__item_text_item-name
+							%h3 メルカリ
+						.contents__container__item__box__items__item_text_item-box
+							.contents__container__item__box__items__item_text_item-box_price ¥800
+							.contents__container__item__box__items__item_text_item-box_good
+								= icon "far", "heart", :class => "contents__container__item__box__items__item_text_item-box_good_btn"
+								%span.contents__container__item__box__items__item_text_item-box_good_count 3
+						%p.contents__container__item__box__items__item_text_tax （税込）
+
+				%section.contents__container__item__box__items__item
+					%a.contents__container__item__box__items__item__link
+						%figure.contents__container__item__box__items__item__link_figure
+							= image_tag("cap", :class => "contents__container__item__box__items__item__link_figure_img")
+					.contents__container__item__box__items__item_text
+						.contents__container__item__box__items__item_text_item-name
+							%h3 メルカリ
+						.contents__container__item__box__items__item_text_item-box
+							.contents__container__item__box__items__item_text_item-box_price ¥800
+							.contents__container__item__box__items__item_text_item-box_good
+								= icon "far", "heart", :class => "contents__container__item__box__items__item_text_item-box_good_btn"
+								%span.contents__container__item__box__items__item_text_item-box_good_count 3
+						%p.contents__container__item__box__items__item_text_tax （税込）
+
 			.contents__container__item__box_link
 				%a.contents__container__item__box_link_text すべての商品を見る
 		.contents__container__item__box
 			%h3.contents__container__item__box_title メンズ新着アイテム
 			.contents__container__item__box__items
-				= render @items
+
+				%section.contents__container__item__box__items__item
+					%a.contents__container__item__box__items__item__link
+						%figure.contents__container__item__box__items__item__link_figure
+							= image_tag("cap", :class => "contents__container__item__box__items__item__link_figure_img")
+					.contents__container__item__box__items__item_text
+						.contents__container__item__box__items__item_text_item-name
+							%h3 メルカリ
+						.contents__container__item__box__items__item_text_item-box
+							.contents__container__item__box__items__item_text_item-box_price ¥800
+							.contents__container__item__box__items__item_text_item-box_good
+								= icon "far", "heart", :class => "contents__container__item__box__items__item_text_item-box_good_btn"
+								%span.contents__container__item__box__items__item_text_item-box_good_count 3
+						%p.contents__container__item__box__items__item_text_tax （税込）
+
+				%section.contents__container__item__box__items__item
+					%a.contents__container__item__box__items__item__link
+						%figure.contents__container__item__box__items__item__link_figure
+							= image_tag("cap", :class => "contents__container__item__box__items__item__link_figure_img")
+					.contents__container__item__box__items__item_text
+						.contents__container__item__box__items__item_text_item-name
+							%h3 メルカリ
+						.contents__container__item__box__items__item_text_item-box
+							.contents__container__item__box__items__item_text_item-box_price ¥800
+							.contents__container__item__box__items__item_text_item-box_good
+								= icon "far", "heart", :class => "contents__container__item__box__items__item_text_item-box_good_btn"
+								%span.contents__container__item__box__items__item_text_item-box_good_count 3
+						%p.contents__container__item__box__items__item_text_tax （税込）
+
+				%section.contents__container__item__box__items__item
+					%a.contents__container__item__box__items__item__link
+						%figure.contents__container__item__box__items__item__link_figure
+							= image_tag("cap", :class => "contents__container__item__box__items__item__link_figure_img")
+					.contents__container__item__box__items__item_text
+						.contents__container__item__box__items__item_text_item-name
+							%h3 メルカリ
+						.contents__container__item__box__items__item_text_item-box
+							.contents__container__item__box__items__item_text_item-box_price ¥800
+							.contents__container__item__box__items__item_text_item-box_good
+								= icon "far", "heart", :class => "contents__container__item__box__items__item_text_item-box_good_btn"
+								%span.contents__container__item__box__items__item_text_item-box_good_count 3
+						%p.contents__container__item__box__items__item_text_tax （税込）
+
+				%section.contents__container__item__box__items__item
+					%a.contents__container__item__box__items__item__link
+						%figure.contents__container__item__box__items__item__link_figure
+							= image_tag("cap", :class => "contents__container__item__box__items__item__link_figure_img")
+					.contents__container__item__box__items__item_text
+						.contents__container__item__box__items__item_text_item-name
+							%h3 メルカリ
+						.contents__container__item__box__items__item_text_item-box
+							.contents__container__item__box__items__item_text_item-box_price ¥800
+							.contents__container__item__box__items__item_text_item-box_good
+								= icon "far", "heart", :class => "contents__container__item__box__items__item_text_item-box_good_btn"
+								%span.contents__container__item__box__items__item_text_item-box_good_count 3
+						%p.contents__container__item__box__items__item_text_tax （税込）
+
 			.contents__container__item__box_link
 				%a.contents__container__item__box_link_text すべての商品を見る
 	.contents__under__image-box

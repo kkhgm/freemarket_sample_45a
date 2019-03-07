@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_03_07_051524) do
+=======
+ActiveRecord::Schema.define(version: 2019_03_07_072510) do
+>>>>>>> yu40ta/master
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
@@ -25,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_03_07_051524) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+<<<<<<< HEAD
   create_table "itemimages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.datetime "created_at", null: false
@@ -35,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_03_07_051524) do
     t.index ["item_id_id"], name: "index_itemimages_on_item_id_id"
   end
 
+=======
+>>>>>>> yu40ta/master
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false

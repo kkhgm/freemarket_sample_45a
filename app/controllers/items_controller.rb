@@ -6,4 +6,9 @@ class ItemsController < ApplicationController
   def show
 
   end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
 end

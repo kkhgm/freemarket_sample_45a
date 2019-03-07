@@ -27,9 +27,9 @@
           .header_box__userbox
             %ul.header_box__userbox_user
               %li
-                %a.header_box__userbox_user_login ログイン
+                = link_to "ログイン", new_user_session_path, class: "header_box__userbox_user_login"
               %li
-                %a.header_box__userbox_user_signup 新規会員登録
+                = link_to "新規会員登録", new0_user_registration_path, class: "header_box__userbox_user_signup"
     = yield
 
     %footer
@@ -116,10 +116,12 @@
                 = image_tag("flag_jp", :class => "footer__contents__links_link_country")
                 日本
         .footer__logo
-          = link_to embedded_svg("logo-white.svg", :class => "footer__logo_image"), :controller => "items", :action => "index"
+          = link_to embedded_svg("logo-white.svg", :class => "footer__logo_image"), :controller => "/items", :action => "index"
           %p.footer__logo_text
             %small ©️2019 Mercari
 
   %a.to-sell-btn
     .to-sell-btn_text 出品
     = icon "fas", "camera", :class => "to-sell-btn_icon"
+
+  = link_to "ログアウト", destroy_user_session_path, method: :delete

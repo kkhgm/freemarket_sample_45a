@@ -80,9 +80,10 @@ end
 
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'devise'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
-gem 'active_hash'
 gem 'pry-rails'
+gem 'active_hash'

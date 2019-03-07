@@ -1,14 +1,21 @@
 @import './reset';
 @import "./items";
+<<<<<<< HEAD
 @import "./conform_buy";
 @import "./items_new";
+=======
+@import "modules/signup";
+@import "modules/signin";
+@import "modules/devise_footer";
+@import "modules/devise_common";
+@import "./conform_buy";
+>>>>>>> yu40ta/master
 @import "./item_detail";
 @import "./add-card";
 @import "./card-info";
 @import "modules/input-common";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
 * {
   box-sizing: border-box;
 }

@@ -18,4 +18,8 @@ class ItemsController < ApplicationController
   def item_params
   	params.permit(:name,:description,:shipping_method,:shipping_change,:ship_from_region,:shipping_date,:price)
   end
+
+  def show
+
+  end
 end

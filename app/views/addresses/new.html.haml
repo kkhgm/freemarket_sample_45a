@@ -1,0 +1,57 @@
+.signin
+  .signup__header
+    .signup__header__mercari-logo
+      = link_to image_tag("logo.svg")
+    .signup__header__progress
+      %ul.progress
+        %li.through
+          会員情報
+          .bubble.bubble-first
+        %li.through
+          電話番号認証
+          .bubble
+        %li.active
+          お届け先住所入力
+          .bubble
+        %li
+          支払い方法
+          .bubble
+        %li
+          完了
+          .bubble.bubble-last
+  .signup__panel
+    .signup__panel__title
+      %h2 住所入力
+    = form_for @address, url: address_path, method: :post do |f|
+      .signup__panel__field.signup__panel__field1
+        .field
+          = f.label :郵便番号
+          %span.required 必須
+          %br/
+          = f.text_field :zip_code, placeholder: "例）123-4567"
+        .field
+          = f.label :都道府県
+          %span.required 必須
+          %br/
+          .birth-field.prefecture-field
+            = f.select :prefecture, @prefectures.map{|t| [t.name]}
+            %span.select-icon
+              = icon "fas", "angle-down", class: "select-icon"
+        .field
+          = f.label :市区町村
+          %span.required 必須
+          %br/
+          = f.text_field :city, placeholder: "例）横浜市緑区"
+        .field
+          = f.label :番地
+          %span.required 必須
+          %br/
+          = f.text_field :street, placeholder: "例）青山1-1-1"
+        .field
+          = f.label :建物名
+          %span.optional 任意
+          %br/
+          = f.text_field :building, placeholder: "例）柳ビル103"
+        .actions
+          = button_to "次へ進む", {}, class: "btn action-btn"
+  = render "users/shared/footer"

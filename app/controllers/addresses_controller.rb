@@ -8,6 +8,7 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
+    @prefectures = Prefecture.all
     if @address.save
       redirect_to new4_user_registration_path
     else

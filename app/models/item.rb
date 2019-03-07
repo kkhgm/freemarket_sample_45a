@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 class Region < ActiveHash::Base
 	include ActiveHash::Associations
   self.data = [
@@ -28,7 +29,3 @@ class Item < ApplicationRecord
   has_many :itemimages
   accepts_nested_attributes_for :itemimages
 end
-=======
-class Item < ApplicationRecord
-end
->>>>>>> yu40ta/master

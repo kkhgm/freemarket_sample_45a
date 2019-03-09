@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to action: "index"
     else
-      redirect_to action: "show"
+      flash[:notice] = "削除に失敗しました"
     end
   end
 

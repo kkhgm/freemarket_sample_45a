@@ -17,8 +17,11 @@ class ItemsController < ApplicationController
 
    def destroy
     each_item
-    @item.destroy
-    redirect_to action: 'index'
+    if @item.destroy
+      redirect_to action: "index"
+    else
+      redirect_to action: "show"
+    end
   end
 
   def each_item

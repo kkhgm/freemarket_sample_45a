@@ -23,6 +23,14 @@ end
 
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :condition, presence: true
+  validates :shipping_charge, presence: true
+  validates :ship_from_region, presence: true
+  validates :shipping_date, presence: true
+  validates :price, presence: true
+
   has_one :region
   has_many :itemimages
   accepts_nested_attributes_for :itemimages

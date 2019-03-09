@@ -24,4 +24,6 @@ end
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_one :region
+  has_many :itemimages
+  accepts_nested_attributes_for :itemimages
 end

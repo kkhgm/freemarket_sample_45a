@@ -8,13 +8,12 @@ class ItemsController < ApplicationController
 
   def new
   	@item = Item.new
-    # @item.build_item_images
+    @item.itemimages.build
   	@regions = Region.all
   end
 
   def create
   	@item = Item.create(item_params)
-    binding.pry
     redirect_to controller: :items, action: :index
   end
 
@@ -24,6 +23,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-  	params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price)
+  	params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price, itemimages_attributes: [:id, :image])
   end
 end

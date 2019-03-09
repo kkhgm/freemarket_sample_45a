@@ -7,18 +7,22 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
+    each_item
   end
 
   def update
-    @item = Item.find(params[:id])
+    each_item
     render :action => "edit" unless @item.update(item_params)
   end
 
    def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    each_item
+    @item.destroy
     redirect_to action: 'index'
+  end
+
+  def each_item
+    @item = Item.find(params[:id])
   end
 
   private

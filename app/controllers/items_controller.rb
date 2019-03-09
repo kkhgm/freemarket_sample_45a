@@ -13,6 +13,9 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
+    unless
+       redirect_to :action => "edit"
+    end
   end
 
   private

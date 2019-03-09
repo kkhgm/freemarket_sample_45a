@@ -14,6 +14,15 @@ describe ItemsController, type: :controller do
     end
   end
 
+  describe 'delete #destroy' do
+    it "削除機能の確認" do
+      items = create(:item)
+      expect{
+        delete :destroy, params: { id: items}
+      }. to change(Item, :count).by(-1)
+    end
+  end
+
   describe 'GET #edit' do
     it "インスタンス変数取得の確認" do
       items = create(:item)

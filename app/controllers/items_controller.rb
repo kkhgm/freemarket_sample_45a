@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :each_item, except:[:index, :show]
+  before_action :set_item, except:[:index, :show]
 
   def index
     @items = Item.order("created_at DESC").limit(4)
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def each_item
+  def set_item
     @item = Item.find(params[:id])
   end
 

@@ -12,6 +12,19 @@ describe ItemsController, type: :controller do
       get :index
       expect(response).to render_template :index
     end
-
   end
+
+  describe 'GET #edit' do
+    it "インスタンス変数取得の確認" do
+      items = create(:item)
+      get :edit, params: { id: items }
+      expect(assigns(:item)).to eq items
+    end
+    it "editビューが描画される" do
+      items = create(:item)
+      get :edit, params: { id: items }
+      expect(response).to render_template :edit
+    end
+  end
+
 end

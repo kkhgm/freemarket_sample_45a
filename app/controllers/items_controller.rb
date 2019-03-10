@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
 
-  layout 'singlepage', only: :new
-  before_action :set_item, except:[:index, :show]
+  # before_action :set_item, except:[:index, :show]
 
   def index
     @items = Item.order("created_at DESC").limit(4)
@@ -14,8 +13,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	@item = Item.create(item_params)
-    redirect_to controller: :items, action: :index
+  	@item = Item.new(item_params)
+    if @item.save
+      redirect_to controller: :items, action: :index
+    end
   end
 
   def show
@@ -36,9 +37,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  # def set_item
+  #   @item = Item.find(params[:id])
+  # end
 
   private
   def item_params

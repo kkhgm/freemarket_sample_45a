@@ -1,3 +1,5 @@
+= render partial: "layouts/main-header"
+
 %main.mypage-container
   .mypage-content
     / プロフィール編集
@@ -110,3 +112,5 @@
           = link_to "/users/#{current_user.id}", method: :delete, action: "destroy", class: "mypage-side-nav__list__item" do
             ログアウト
             = icon "fas", "angle-right" , class: "mypage-side-nav__list__icon"
+
+= render partial: "layouts/main-footer"

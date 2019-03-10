@@ -57,16 +57,16 @@ body{
 		&__how-to__look-for {
 			display: inline-block;
 			position: absolute;
-			left: 5px;
+			left: 15px;
 			top: 50px;
 			color: #333;
 		  &_list{
 		  	display: flex;
-			  &_btn{
-			  	height: 38px;
-			  	line-height: 32px;
-			  	padding: 10px;
-			  	font-size: 14px;
+		  	height: 38px;
+		  	line-height: 38px;
+		  	font-size: 14px;
+			  &_btn__brand{
+			  	margin-left: 14px;
 			  	&:hover{
 						cursor: pointer;
 					}
@@ -82,13 +82,16 @@ body{
 			line-height: 32px;
 			&_user{
 				display: flex;
-				&__mypage span{
-					font-size: 14px;
-					margin: 0 0 0 8px;
-				}
 				&__mypage{
 					display: flex;
 					color: $black;
+					& span{
+						font-size: 14px;
+						margin: 0 0 0 8px;
+					}
+					&:hover{
+						color: $link-color;
+					}
 					&__icon{
 						width: 32px;
 						height: 32px;
@@ -96,15 +99,19 @@ body{
 						overflow: hidden;
 					}
 				}
-				&__mypage:hover{
-					color: $link-color;
-				}
 				&__notice{
 					position: relative;
 					display: inline;
 					font-size: 14px;
 					margin: 0 0 0 16px;
 					color: $black;
+					& span {
+						font-size: 14px;
+						margin: 0 0 0 6px;
+					}
+					&:hover{
+						color: $link-color;
+					}
 					&__icon {
 						font-size: 16px;
 					}
@@ -122,28 +129,21 @@ body{
 						text-align: center;
 					}
 				}
-				&__notice span {
-					font-size: 14px;
-					margin: 0 0 0 6px;
-				}
-				&__notice:hover{
-					color: $link-color;
-				}
 				&__todo {
 					display: inline;
-					font-size: 13px;
+					font-size: 1px;
 					color: $black;
 					margin: 0 0 0 16px;
+					& span {
+						font-size: 14px;
+						margin: 0 0 0 6px;
+					}
+					&:hover {
+						color: $link-color;
+					}
 					&__icon {
 						font-size: 20px;
 					}
-				}
-				&__todo span {
-					font-size: 14px;
-					margin: 0 0 0 6px;
-				}
-				&__todo:hover {
-					color: $link-color;
 				}
 				&_login{
 					height: 32px;
@@ -422,11 +422,13 @@ body{
 	background-color: #ea352d;
 	text-align: center;
 	&_text{
+		display: block;
 		color: #fff;
 		font-size: 23px;
-		margin-top: 32px;
+		margin: 32px auto 0;
 	}
 	&_icon{
+		display: block;
 		color: #fff;
 		font-size: 60px;
 		margin: 3px auto 0;

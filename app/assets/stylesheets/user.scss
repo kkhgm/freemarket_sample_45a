@@ -5,10 +5,11 @@ body {
 }
 a {
   text-decoration: none;
-}
-a:hover {
+  &:hover {
   opacity: 0.7;
+  }
 }
+
 h3 {
   display: block;
   font-size: 1.17em;
@@ -50,6 +51,12 @@ h3 {
   font-size: 16px;
   line-height: 1.5;
 }
+.bold {
+  font-weight: 600;
+}
+.margin {
+  margin: 8px 0 0;
+}
 
 /*container*/
 .mypage-container {
@@ -69,58 +76,54 @@ h3 {
   padding: 20px;
   background-image: url(/images/mercari_bg.jpg);
   background-size: cover;
+  & a {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    text-decoration: none;
+    color: $black;
+  }
+  & img {
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+  & h2 {
+    margin: 8px 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
   &__number {
     display: flex;
     justify-content: center;
     margin: 8px 0 0;
+    & span {
+      margin: 0 0 0 8px;
+      font-size: 1rem;
+    }
     &--display {
-    margin: 0 0 0 16px;
+      margin: 0 0 0 16px;
     }
   }
-  &__number span {
-    margin: 0 0 0 8px;
-    font-size: 1rem;
-  }
-}
-.mypage-user-icon a {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  text-decoration: none;
-  color: $black;
-}
-.mypage-user-icon img {
-  vertical-align: middle;
-  border-radius: 50%;
-}
-.mypage-user-icon h2 {
-  margin: 8px 0 0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.bold {
-  font-weight: 600;
 }
 
 .mypage-content {
   max-width: 700px;
-  &__tabs a {
-    position: relative;
-    display: block;
-    color: $black;
-    font-size: 16px;
-    line-height: 72px;
-  }
   &__tabs {
     display: flex;
     border: 0;
     width: 100%;
     background-color: $white;
     font-size: 0;
+    & a {
+      position: relative;
+      display: block;
+      color: $black;
+      font-size: 16px;
+      line-height: 72px;
+    }
     &--active {
       display: flex;
       justify-content: center;
@@ -144,26 +147,26 @@ h3 {
         padding: 16px;
         color: $black;
         position: relative;
-      }
-      &__link:hover {
-        background-color: $gray;
-      }
-      &__link figure {
-        float: left;
-        width: 48px;
-        height: 48px;
+        &:hover {
+          background-color: $gray;
+        }
+        & figure {
+          float: left;
+          width: 48px;
+          height: 48px;
+        }
       }
       &__body {
         margin: 0 40px 0 68px;
+        & time {
+          opacity: 0.5;
+          & i {
+            font-size: 16px;
+          }
+        }
         &--text {
         line-height: 1.5;
         }
-      }
-      &__body time {
-        opacity: 0.5;
-      }
-      &__body time i {
-        font-size: 16px;
       }
       &__icon {
         position: absolute;
@@ -175,15 +178,15 @@ h3 {
       }
       &__index {
       padding: 16px;
-      }
-      &__index a {
-        display: block;
-        height: 56px;
-        line-height: 56px;
-        text-align: center;
-        margin: $margin-auto;
-        color: $black;
-        background-color: #eee;
+        & a {
+          display: block;
+          height: 56px;
+          line-height: 56px;
+          text-align: center;
+          margin: $margin-auto;
+          color: $black;
+          background-color: #eee;
+        }
       }
     }
   }
@@ -231,37 +234,37 @@ h3 {
     }
     &__form {
       padding: 64px;
-    }
-    &__form__icon {
-      padding: 72px 16px 24px;
-      background-image: url('/images/mercari_bg.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      vertical-align: middle;
-      text-align: center;
-    }
-    &__form__icon figure {
-      display: inline-block;
-      vertical-align: middle;
-    }
-    &__form__icon img {
-      border-radius: 50%;
-    }
-    &__form__icon input {
-      width: 220px;
-      margin: 0 0 0 8px;
-      vertical-align: middle;
-    }
-    &__form__content {
-    margin: $margin-auto;
-    padding: 40px 16px;
-    }
-    &__form__content .btn-red {
-      margin: 16px 0 0;
-    }
-    &__form__content .textarea-default {
-      width: 100%;
-      min-height: 216px;
+      &__icon {
+        padding: 72px 16px 24px;
+        background-image: url('/images/mercari_bg.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        vertical-align: middle;
+        text-align: center;
+        & figure {
+          display: inline-block;
+          vertical-align: middle;
+        }
+        & img {
+          border-radius: 50%;
+        }
+        & input {
+          width: 220px;
+          margin: 0 0 0 8px;
+          vertical-align: middle;
+        }
+      }
+      &__content {
+      margin: $margin-auto;
+      padding: 40px 16px;
+        & .btn-red {
+          margin: 16px 0 0;
+        }
+        & .textarea-default {
+          width: 100%;
+          min-height: 216px;
+        }
+      }
     }
   }
 }
@@ -269,31 +272,30 @@ h3 {
 /*side-nav*/
 .mypage-side {
   width: 280px;
-}
-.mypage-side-nav__list a {
-  padding: 16px;
-  color: $black;
-  border-top: 1px solid #eee;
-}
-.mypage-side-nav__list .active {
-  background-color: #eee;
-  font-weight: 600;
-}
-.mypage-side-nav__list {
-  background-color: $white;
-  &__item {
-  display: flex;
-  justify-content: space-between;
+  .mypage-side-nav {
+    &__head {
+      margin: 40px 0 0;
+      font-size: 1rem;
+    }
+    &__list {
+      background-color: $white;
+      & a {
+        padding: 16px;
+        color: $black;
+        border-top: 1px solid #eee;
+      }
+      & .active {
+        background-color: #eee;
+        font-weight: 600;
+      }
+      &__item {
+      display: flex;
+      justify-content: space-between;
+      }
+      &__icon {
+      font-size: 17px;
+      color: #ccc;
+      }
+    }
   }
-  &__icon {
-  font-size: 17px;
-  color: #ccc;
-  }
-}
-.mypage-side-nav__head {
-  margin: 40px 0 0;
-  font-size: 1rem;
-}
-.margin {
-  margin: 8px 0 0;
 }

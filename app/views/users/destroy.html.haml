@@ -1,3 +1,5 @@
+= render partial: "layouts/main-header"
+
 %main.mypage-container
   .mypage-content
     / ログアウト
@@ -104,3 +106,5 @@
           = link_to user_path, class: "mypage-side-nav__list__item" do
             ログアウト
             = icon "fas", "angle-right" , class: "mypage-side-nav__list__icon"
+
+= render partial: "layouts/main-footer"

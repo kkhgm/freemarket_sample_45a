@@ -3,7 +3,6 @@
 class Users::SessionsController < Devise::SessionsController
   protect_from_forgery except: :create
   # before_action :configure_sign_in_params, only: [:create]
-  layout "users"
   # GET /resource/sign_in
   # def new
   #   super

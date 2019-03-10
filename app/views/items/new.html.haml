@@ -41,7 +41,7 @@
           %h4 配送料の負担
           %span 必須
           = icon "fas", "angle-down", :class => "select_icon"
-          = f.select :shipping_charge,[["送料込み（出品者負担）",1],["着払い（購入者負担）",2]],:prompt => "---", :class => "item-contents__shipping_box_charge_input"
+          = f.select :shipping_charge,[["送料込み（出品者負担）","送料込み"],["着払い（購入者負担）","着払い"]],:prompt => "---", :class => "item-contents__shipping_box_charge_input"
         .item-contents__shipping_box_method
           %h4 配送の方法
           %span 必須

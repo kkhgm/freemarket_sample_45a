@@ -9,16 +9,6 @@ a {
   opacity: 0.7;
   }
 }
-
-h3 {
-  display: block;
-  font-size: 1.17em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
 .btn-default {
   display: block;
   width: 100%;
@@ -117,6 +107,7 @@ h3 {
     width: 100%;
     background-color: $white;
     font-size: 0;
+    font-weight: 600;
     & a {
       position: relative;
       display: block;
@@ -276,6 +267,7 @@ h3 {
     &__head {
       margin: 40px 0 0;
       font-size: 1rem;
+      font-weight: 600;
     }
     &__list {
       background-color: $white;

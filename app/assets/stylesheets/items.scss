@@ -234,20 +234,23 @@ body{
 						background-color: #fff;
 						text-align: left;
 						position: relative;
-						&_item-name{
-							position: relative;
-							white-space: pre-line;
+						& h3{
+							word-break: break-word;
+							vertical-align: text-top;
 							overflow: hidden;
-							height: 48px;
-							& h3{
-								word-break: break-word;
-								vertical-align: text-top;
-								font-size: 16px;
-								line-height: 1.5;
-								font-weight: 400;
-								position: absolute;
-								top: 0;
-							}
+							font-size: 16px;
+							line-height: 1.2;
+							color: $black;
+							&::after{
+								display: block;
+						    content: '';
+						    position: absolute;
+						    top: 32px;
+						    right: 0;
+						    width: 50%;
+						    height: 1.5em;
+						    background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+						  }
 						}
 						&_item-box{
 							position: absolute;

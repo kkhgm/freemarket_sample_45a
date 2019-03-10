@@ -39,6 +39,8 @@
                     = icon "far", "bell", class: "header_box__userbox_user__notice__icon"
                     %span.header_box__userbox_user__notice__text
                       お知らせ
+                    .header_box__userbox_user__notice__budge
+                      99+
                 %li
                   = link_to user_path(current_user), class: "header_box__userbox_user__todo" do
                     = icon "fas", "check", class: "header_box__userbox_user__todo__icon"
@@ -143,5 +145,3 @@
   = link_to "", class: "to-sell-btn" do
     %span.to-sell-btn_text 出品
     = icon "fas", "camera", :class => "to-sell-btn_icon"
-
-  = link_to "ログアウト", destroy_user_session_path, method: :delete

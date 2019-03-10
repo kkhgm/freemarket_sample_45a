@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   root "items#index"
   resource :address, except: [:destroy, :show]
   resources :items
+  resources :users # 後でonly: [:show, :index]など追記予定
 end

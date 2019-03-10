@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "items#index"
+
+  resources :items
   resource :address, except: [:destroy, :show]
-  resources :items, only: [:show]
+  resources :users # 後でonly: [:show, :index]など追記予定
 end

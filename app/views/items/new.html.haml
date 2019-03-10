@@ -1,3 +1,5 @@
+= render partial: "layouts/sub-header"
+
 .item-contents
   .item-contents__title
     %h2 商品の情報を入力
@@ -53,7 +55,7 @@
           %h4 発送までの日数
           %span 必須
           = icon "fas", "angle-down", :class => "select_icon"
-		  = f.select :shipping_date,["1~2日で発送","2~3日で発送","4~7日で発送"], :class => "item-contents__shipping_box_date_input",:prompt => "---"
+          = f.select :shipping_date,["1~2日で発送","2~3日で発送","4~7日で発送"], :class => "item-contents__shipping_box_date_input",:prompt => "---"
     .item-contents__price.clearfix
       %h3 販売価格(300〜9,999,999)
       .item-contents__price_box
@@ -69,8 +71,8 @@
             %p.item-contents__price_box_list_text 販売手数料（10%）
             %p.item-contents__price_box_list_sales -
           %li.item-contents__price_box_list
-			%h5 販売利益
-			%p.item-contents__price_box_list_sales_under -
+            %h5 販売利益
+            %p.item-contents__price_box_list_sales_under -
     .item-contents__submit
       = link_to "禁止されている出品"
       、
@@ -87,3 +89,5 @@
       = f.submit("出品する", class: "item-contents__submit_go-btn")
       .item-contents__submit_back-btn
         戻る
+
+= render partial: "layouts/sub-footer"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_072510) do
+ActiveRecord::Schema.define(version: 2019_03_09_064019) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 2019_03_07_072510) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "itemimages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_itemimages_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
@@ -33,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_03_07_072510) do
     t.string "shipping_charge", null: false
     t.string "ship_from_region", null: false
     t.string "shipping_date", null: false
-    t.integer "price", null: false
+    t.string "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_items_on_name"
@@ -62,4 +70,5 @@ ActiveRecord::Schema.define(version: 2019_03_07_072510) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "itemimages", "items"
 end

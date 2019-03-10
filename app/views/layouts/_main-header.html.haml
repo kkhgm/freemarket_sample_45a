@@ -1,0 +1,41 @@
+%header
+  .header
+    .header_box
+      .header_box__logo-and-input
+        = link_to root_path do
+          = image_tag("mercari_logo_horizontal",:class => "header_box__logo-and-input__logo" )
+        %form.header_box__logo-and-input__form
+          %input{class: "header_box__logo-and-input__form__input", placeholder: "キーワードから探す"}
+          %input{type: "submit", id: "header_box__logo-and-input__form__input", value: "キーワードから探す", class: "header_box__logo-and-input__form__input__search"}
+          %label{for: "header_box__logo-and-input__form__input"}
+            = icon "fas", "search", :class => "header_box__logo-and-input__form__input__search_btn"
+      .header_box__how-to__look-for
+        %ul.header_box__how-to__look-for_list
+          %li
+            = link_to "カテゴリーから探す", {}, style: "color:#333", class: "header_box__how-to__look-for_list_btn"
+          %li
+            = link_to "ブランドから探す", {}, style: "color:#333", class: "header_box__how-to__look-for_list_btn__brand"
+      .header_box__userbox
+        %ul.header_box__userbox_user
+          - if user_signed_in?
+            %li
+              = link_to user_path(current_user), class: "header_box__userbox_user__mypage" do
+                %figure.header_box__userbox_user__mypage__icon
+                  = image_tag("yu40ta-avatar.png", size: "32x32")
+                %span.header_box__userbox_user__mypage__text
+                  マイページ
+            %li
+              = link_to user_path(current_user), class: "header_box__userbox_user__notice" do
+                = icon "far", "bell", class: "header_box__userbox_user__notice__icon"
+                %span.header_box__userbox_user__notice__text
+                  お知らせ
+            %li
+              = link_to user_path(current_user), class: "header_box__userbox_user__todo" do
+                = icon "fas", "check", class: "header_box__userbox_user__todo__icon"
+                %span.header_box__userbox_user__todo__text
+                  やることリスト
+          - else
+            %li
+              = link_to "ログイン", new_user_session_path, class: "header_box__userbox_user_login"
+            %li
+              = link_to "新規会員登録", new0_user_registration_path, class: "header_box__userbox_user_signup"

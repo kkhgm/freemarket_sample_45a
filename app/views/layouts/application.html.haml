@@ -12,7 +12,8 @@
       .header
         .header_box
           .header_box__logo-and-input
-            = image_tag("mercari_logo_horizontal",:class => "header_box__logo-and-input__logo" )
+            = link_to root_path do
+              = image_tag("mercari_logo_horizontal",:class => "header_box__logo-and-input__logo" )
             %form.header_box__logo-and-input__form
               %input{class: "header_box__logo-and-input__form__input", placeholder: "キーワードから探す"}
               %input{type: "submit", id: "header_box__logo-and-input__form__input", value: "キーワードから探す", class: "header_box__logo-and-input__form__input__search"}

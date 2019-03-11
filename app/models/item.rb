@@ -23,10 +23,11 @@ end
 
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :description, presence: true, length: { maximum: 1000 }
   validates :condition, presence: true
   validates :shipping_charge, presence: true
+  validates :shipping_method, presence: true
   validates :ship_from_region, presence: true
   validates :shipping_date, presence: true
   validates :price, presence: true

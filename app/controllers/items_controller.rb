@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  # before_action :set_item, except:[:index, :show]
+  before_action :set_item, except:[:index, :new, :create, :search ]
 
   def index
     @items = Item.order("created_at DESC").limit(4)
@@ -37,9 +37,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def set_item
-  #   @item = Item.find(params[:id])
-  # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def search
+    @items = Item.where('name LIKE ?',"%#{params[:text]}%")or(Item.where('description LIKE ?', "%#{params[:text]}%"))
+  end
 
   private
   def item_params

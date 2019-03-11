@@ -1,0 +1,7 @@
+= render partial: "layouts/sub-header"
+.search-contents
+	%section.search-contents__container
+	%h2 検索結果
+	.search-contents__container__box
+		=render @items
+= render partial: "layouts/sub-footer"

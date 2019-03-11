@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Itemimage, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	describe Itemimage do
+	  it "画像が保存できていないとバリデーションで弾かれる" do
+	    itemimage = build(:itemimage, image: nil)
+	    itemimage.valid?
+	    expect(itemimage.errors[:image]).to include("can't be blank")
+	  end
+	end
 end

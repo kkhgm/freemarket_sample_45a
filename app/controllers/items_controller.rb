@@ -43,6 +43,7 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.where('name LIKE ?',"%#{params[:text]}%")or(Item.where('description LIKE ?', "%#{params[:text]}%"))
+    @count = @items.length
   end
 
   private

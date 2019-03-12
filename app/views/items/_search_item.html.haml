@@ -1,0 +1,13 @@
+%section.search-contents__container_main__item
+  %a.search-contents__container_main__item__link
+    %figure.search-contents__container_main__item__link_figure
+      = image_tag("cap", :class => "search-contents__container_main__item__link_figure_img")
+  .search-contents__container_main__item_text
+    .search-contents__container_main__item_text_name
+      %h3= item.name
+    .search-contents__container_main__item_text_box
+      .search-contents__container_main__item_text_box_price= "¥#{item.price}"
+      .search-contents__container_main__item_text_box_good
+        = icon "far", "heart", :class => "search-contents__container_main__item_text_box_good_btn"
+        %span.search-contents__container_main__item_text_box_good_count 3
+    %p.search-contents__container_main__item_text_box_tax （税込）

@@ -59,4 +59,14 @@ describe ItemsController, type: :controller do
       expect(response).to redirect_to action: :index
     end
   end
+
+  describe 'GET #search' do
+    it "あいまい検索で部分一致するデータだけが表示される。" do
+      item = create(:item, name: "abc")
+      item1 = create(:item, name: "cde")
+      item2 = create(:item, name: "efg")
+      get :search, params: {text: "c"}
+      expect(assigns(:items).count).to eq 2
+    end
+  end
 end

@@ -61,10 +61,30 @@ describe ItemsController, type: :controller do
   end
 
   describe 'GET #search' do
-    it "あいまい検索で部分一致するデータだけが表示される。" do
+    it "あいまい検索で商品の名前と部分一致するデータだけが表示される。" do
       item = create(:item, name: "abc")
       item1 = create(:item, name: "cde")
       item2 = create(:item, name: "efg")
+      get :search, params: {text: "c"}
+      expect(assigns(:items).count).to eq 2
+    end
+  end
+
+  describe 'GET #search' do
+    it "あいまい検索で商品の説明と部分一致するデータだけが表示される。" do
+      item = create(:item, description: "abc")
+      item1 = create(:item, description: "cde")
+      item2 = create(:item, description: "efg")
+      get :search, params: {text: "c"}
+      expect(assigns(:items).count).to eq 2
+    end
+  end
+
+  describe 'GET #search' do
+    it "あいまい検索で商品の名前または説明のどちらか一方が部分一致すればデータは表示される。" do
+      item = create(:item, name: "abc")
+      item1 = create(:item, description: "cde")
+      item2 = create(:item)
       get :search, params: {text: "c"}
       expect(assigns(:items).count).to eq 2
     end

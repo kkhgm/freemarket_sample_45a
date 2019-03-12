@@ -18,15 +18,27 @@
   &__container {
   width: 720px;
   float: right;
-  & h2 {
-    font-size: 22px;
-    line-height: 1.4;
-    margin-left: 20px;
-    font-weight: 400;
-    margin-bottom: 8px;
-  }
+    &_top{
+      &_result {
+        font-size: 22px;
+        line-height: 1.4;
+        margin-left: 20px;
+        font-weight: 400;
+        margin-bottom: 8px;
+      }
+      &_message {
+        margin: 16px 0 0 20px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      &_title {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 24px 0 8px 20px;
+      }
+    }
     &_main {
-      display: float;
+      display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       &__item {

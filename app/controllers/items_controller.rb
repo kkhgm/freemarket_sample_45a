@@ -42,8 +42,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.where("name LIKE :text OR description LIKE :text", text: "%#{params[:text]}%")
-    @count = @items.length
+      @items = Item.where("name LIKE :text OR description LIKE :text", text: "%#{params[:text]}%").order("created_at DESC")
   end
 
   private

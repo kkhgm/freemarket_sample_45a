@@ -6,7 +6,9 @@
 			.search-contents__side-bar__form_box
 	.search-contents__container
 		%section.search-contents__container_top
-		%h2 検索結果 #{@count}件
+		%h2 検索結果 #{@items.length}件
+		- if @message
+			%p #{@message}
 		.search-contents__container_main
 			=render partial: "search_item", collection: @items, as: :item
 = render partial: "layouts/main-footer"

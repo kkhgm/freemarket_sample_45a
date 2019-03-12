@@ -42,7 +42,11 @@ class ItemsController < ApplicationController
   end
 
   def search
-      @items = Item.where("name LIKE :text OR description LIKE :text", text: "%#{params[:text]}%").order("created_at DESC")
+    @items = Item.where("name LIKE :text OR description LIKE :text", text: "%#{params[:text]}%").order("created_at DESC")
+    if params[:text].present? == false || @items.length == 0
+      @items = []
+      @newitems = Item.all.order("created_at DESC").limit(48)
+    end
   end
 
   private

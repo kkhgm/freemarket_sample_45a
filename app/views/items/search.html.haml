@@ -6,9 +6,13 @@
 			.search-contents__side-bar__form_box
 	.search-contents__container
 		%section.search-contents__container_top
-		%h2 検索結果 #{@items.length}件
-		- if @message
-			%p #{@message}
-		.search-contents__container_main
-			=render partial: "search_item", collection: @items, as: :item
+		%h2.search-contents__container_top_result 検索結果 #{@items.length}件
+		- if @newitems
+			%p.search-contents__container_top_message 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
+			%h3.search-contents__container_top_title 新着商品
+			.search-contents__container_main
+				= render partial: "search_item", collection: @newitems, as: :item
+		- else
+			.search-contents__container_main
+				= render partial: "search_item", collection: @items, as: :item
 = render partial: "layouts/main-footer"

@@ -1,7 +1,12 @@
-= render partial: "layouts/sub-header"
-.search-contents
-	%section.search-contents__container
-	%h2 検索結果
-	.search-contents__container__box
-		=render @items
-= render partial: "layouts/sub-footer"
+= render partial: "layouts/main-header"
+.search-contents.clearfix
+	.search-contents__side-bar
+		%form.search-contents__side-bar__form
+			.search-contents__side-bar__form_sort
+			.search-contents__side-bar__form_box
+	.search-contents__container
+		%section.search-contents__container_top
+		%h2 検索結果 #{@count}件
+		.search-contents__container_main
+			=render partial: "search_item", collection: @items, as: :item
+= render partial: "layouts/main-footer"

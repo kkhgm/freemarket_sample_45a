@@ -1,0 +1,25 @@
+= render partial: "layouts/main-header"
+.category
+  .category-nav
+    %h1 カテゴリー一覧
+    .category-nav__box
+      - @categories.each do |category1|
+        .category-nav__box__title
+          = link_to "#{category1.name}", "#category-#{category1.id}"
+
+  .category-box
+    - @categories.each do |category1|
+      .category-box__list
+        .category-box__list__large{id: "category-#{category1.id}"}
+          = category1.name
+        .category-box__list__middle
+        - category1.children.each do |category2|
+          %p.middle-name
+            = category2.name
+          %ul
+          - category2.children.each do |category3|
+            .category-box__list__small
+              %p
+                = link_to "#{category3.name}", "/categories/#{category3.id}"
+
+= render partial: "layouts/main-footer"

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   passwords:     'users/passwords',
   registrations: 'users/registrations',
   sessions:      'users/sessions',
+  omniauth_callbacks: 'users/omniauth_callbacks'
   }
   devise_scope :user do
     get 'signup0' => 'users/registrations#new0', as: :new0_user_registration

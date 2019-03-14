@@ -1,6 +1,7 @@
 @import "mixin/single-container";
 
-
+$red: #ea352d;
+$white: #fff;
 
 .category{
     font-size: 16px;
@@ -23,7 +24,7 @@
           min-width: 80px;
           height: 40px;
           line-height: 20px;
-          background-color:#fff;
+          background-color:$white;
           a{
           color: #333;
           }
@@ -33,14 +34,14 @@
   &-box{
       clear: both;
     &__list{
-      background-color: #fff;
+      background-color: $white;
       width: 700px;
       margin: 30px auto 30px;
       &__large{
         padding-left: 20px;
         height: 33px;
-        background-color:#ea352d;
-        color: #fff;
+        background-color:$red;
+        color: $white;
         font-size: 22px;
         line-height: 33px;
       }

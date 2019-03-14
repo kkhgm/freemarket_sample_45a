@@ -39,9 +39,9 @@ describe ItemsController, type: :controller do
   describe 'PATCH #update' do
     it "インスタンス変数取得後、変更の保存確認" do
       item = create(:item)
-      item_params = { id: item, name: "hogehoge",description: item, condition: item, shipping_method: item, shipping_charge: item, ship_from_region: item, shipping_date: item, price: item }
-      patch :update, params: item_params
-      expect(assigns(:item)).not_to eq item
+      patch :update, params: { id: item, item: attributes_for(:item, name: "hogehoge") }
+      item.reload
+      expect(item.name).to eq "hogehoge"
     end
   end
 

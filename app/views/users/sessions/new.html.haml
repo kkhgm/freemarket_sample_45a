@@ -6,11 +6,11 @@
       = button_to "新規会員登録", new0_user_registration_path, method: :get, class: "signup-btn"
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .signin__panel__field
-        = button_to new_user_registration_path, class: "btn facebook-btn" do
+        = link_to user_facebook_omniauth_authorize_path, class: "btn facebook-btn" do
           %span.facebook-icon
             = icon "fab","facebook-square"
           Facebookでログイン
-        = button_to new_user_registration_path, class: "btn google-btn" do
+        = link_to user_google_oauth2_omniauth_authorize_path, class: "btn google-btn" do
           %span.google-icon
             = icon "fab","google"
           Googleでログイン

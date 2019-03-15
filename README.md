@@ -21,7 +21,7 @@
 
 ### Association
 - has_many :items
-- belongs_to :address, dependent: :destroy
+- has_one :address, dependent: :destroy
 - has_many :news
 - has_many :todos
 - has_many :rates
@@ -30,6 +30,8 @@
 - has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
 - has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
 - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
+- has_many :likes, dependent: :destroy
+- has_many :liked_items, through: :likes, source: :item
 ***
 
 ## addressesテーブル
@@ -103,7 +105,7 @@
 - belongs_to :user
 - belongs_to :item
 - has_many :tradecomments
-- belongs_to :rate
+- has_one :rate
 ***
 
 ## tradecommentsテーブル
@@ -138,11 +140,13 @@
 - has_many :item_categories
 - has_many :categories, through: :item_categories
 - has_many :item_comments
-- belongs_to :trade
+- has_one :trade
 - belongs_to :size
 - belongs_to :brand
 - belongs_to :seller, class_name: "User"
 - belongs_to :buyer, class_name: "User"
+- has_many :likes, dependent: :destroy
+- has_many :liked_users, through: :likes, source: :user
 ***
 
 ## itemimagesテーブル
@@ -155,7 +159,7 @@
 - belongs_to :item, dependent: :destroy
 ***
 
-## categoriesテーブル
+## categoriesテーブル（中間テーブル）
 |Column|Type|Options|
 |------|----|-------|
 |parent_id|integer|
@@ -188,7 +192,16 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, unique: true|
-
 ### Association
 - has_many :items
+***
+
+### likesテーブル（中間テーブル）
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|foreign_key: true, index: true|
+|item_id|integer|null: false, foreign_key: true, index: true|
+### Association
+- belongs_to :user
+- belongs_to :item
 ***

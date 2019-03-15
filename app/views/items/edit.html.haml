@@ -1,39 +1,5 @@
-edit view
+= render partial: "layouts/sub-header"
 
-= form_for (@item) do |f|
+= render partial: "item_form"
 
-  %ul
-    %li
-      = f.label :name
-    %li
-      = f.text_field :name, value: "#{@item.name}"
-    %li
-      = f.label :description
-    %li
-      = f.text_field :description, value: "#{@item.description}"
-    %li
-      = f.label :condition
-    %li
-      = f.text_field :condition, value: "#{@item.condition}"
-    %li
-      = f.label :shipping_method
-    %li
-      = f.text_field :shipping_method, value: "#{@item.shipping_method}"
-    %li
-      = f.label :shipping_charge
-    %li
-      = f.text_field :shipping_charge, value: "#{@item.shipping_charge}"
-    %li
-      = f.label :ship_from_region
-    %li
-      = f.text_field :ship_from_region, value: "#{@item.ship_from_region}"
-    %li
-      = f.label :shipping_date
-    %li
-      = f.text_field :shipping_date, value: "#{@item.shipping_date}"
-    %li
-      = f.label :price
-    %li
-      = f.text_field :price, value: "#{@item.price}"
-    %li
-      = f.submit "send"
+= render partial: "layouts/sub-footer"

@@ -7,26 +7,38 @@ class ItemsController < ApplicationController
   end
 
   def new
-  	@item = Item.new
+    @item = Item.new
     @item.itemimages.build
   	@regions = Region.all
   end
 
   def create
-  	@item = Item.new(item_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to controller: :items, action: :index
+    else
+      @regions = Region.all
+      render :new
     end
   end
 
   def show
+    @item = Item.find(params[:id])
+    @other_items = Item.where( [ "id != ? and seller_id = ?", params[:id], @item.seller_id ] ).order("created_at DESC").limit(6)
+    @itemimage = Itemimage.find_by(params[:id], item_id: @item)
+    @itemimages = Itemimage.where("item_id = ?", @item).limit(10)
   end
 
   def edit
+    @regions = Region.all
   end
 
   def update
-    render :action => "edit" unless @item.update(item_params)
+    if @item.update(item_params)
+      redirect_to action: "index"
+    else
+      render :action => "edit"
+    end
   end
 
    def destroy
@@ -35,10 +47,6 @@ class ItemsController < ApplicationController
     else
       flash[:notice] = "削除に失敗しました"
     end
-  end
-
-  def set_item
-    @item = Item.find(params[:id])
   end
 
   def search
@@ -51,6 +59,10 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-  	params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price, itemimages_attributes: [:id, :image])
+    params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price,:seller_id,:buyer_id,itemimages_attributes: [:id, :image]).merge(seller_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

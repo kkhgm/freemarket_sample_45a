@@ -10,10 +10,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :ship_from_region, null: false
       t.string :shipping_date, null: false
       t.integer :price, null: false
-      # t.reference :seller_id, null: false, foreign_key: true
-      # t.reference :buyer_id, null: false, foreign_key: true
-      # t.reference :size_id, null: false, foreign_key: true
-      # t.reference :brand_id, null: false, foreign_key: true
+      t.integer :seller_id, null: false, foreign_key: true
+      t.integer :buyer_id, null: true, foreign_key: true
       t.timestamps
     end
   end

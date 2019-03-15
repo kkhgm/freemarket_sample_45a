@@ -10,7 +10,7 @@ body{
   height: 90px;
   background-color: $white;
   &_box{
-    width: 1020px;
+    max-width: 1020px;
     margin: 0 auto;
     position: relative;
     &__logo-and-input{
@@ -179,10 +179,31 @@ body{
 
 .contents {
   width: 100%;
-  &__top__image-box {
-    height: 390px;
-    background-image: url(/images/top_image1.jpg);
-    background-position: center center;
+  &__top{
+    position: relative;
+    &_next-btn{
+      position: absolute;
+      color: #fff;
+      font-size: 30px;
+      right: 30px;
+      z-index: 1000;
+      display: none;
+    }
+    &_prev-btn{
+      position: absolute;
+      color: #fff;
+      font-size: 30px;
+      left: 30px;
+      z-index: 1000;
+    }
+    &__image-box {
+      width: 100%;
+      height: 390px;
+      position: relative;
+      & li img{
+        width: 100% !important;
+      }
+    }
   }
   &__container{
     padding: 40px;
@@ -372,7 +393,7 @@ body{
     display: flex;
     justify-content: space-around;
     margin: 0 auto;
-    width: 1020px;
+    max-width: 1020px;
     &__links {
       width: 23%;
       &_title{
@@ -432,4 +453,17 @@ body{
     font-size: 60px;
     margin: 3px auto 0;
   }
+}
+
+.bx-wrapper {
+  margin: 0 !important;
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: none !important;
+}
+
+.bx-pager {
+  transform: translateY(-45px);
 }

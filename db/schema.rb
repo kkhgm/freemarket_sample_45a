@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_03_12_113552) do
-=======
-ActiveRecord::Schema.define(version: 2019_03_11_053622) do
->>>>>>> yu40ta/master
+ActiveRecord::Schema.define(version: 2019_03_15_080158) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
@@ -80,11 +76,11 @@ ActiveRecord::Schema.define(version: 2019_03_11_053622) do
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.date "birthday_info", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.date "birthday_info"
     t.string "icon"
     t.text "introduction"
     t.integer "point", default: 0, null: false

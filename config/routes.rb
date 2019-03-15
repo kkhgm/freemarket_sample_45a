@@ -16,9 +16,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "items#index"
 
+  resources :categories
   resources :items do
+    collection do
+      get 'search'
+    end
     resources :itemimages
   end
   resource :address, except: [:destroy, :show]
   resources :users # 後でonly: [:show, :index]など追記予定
+
+
 end

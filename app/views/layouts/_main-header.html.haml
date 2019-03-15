@@ -4,8 +4,8 @@
       .header_box__logo-and-input
         = link_to root_path do
           = image_tag("mercari_logo_horizontal",:class => "header_box__logo-and-input__logo" )
-        %form.header_box__logo-and-input__form
-          %input{class: "header_box__logo-and-input__form__input", placeholder: "キーワードから探す"}
+        %form.header_box__logo-and-input__form{method: "get", action: "/items/search"}
+          %input{type: "text",name:"text", class: "header_box__logo-and-input__form__input", placeholder: "キーワードから探す"}
           %input{type: "submit", id: "header_box__logo-and-input__form__input", value: "キーワードから探す", class: "header_box__logo-and-input__form__input__search"}
           %label{for: "header_box__logo-and-input__form__input"}
             = icon "fas", "search", :class => "header_box__logo-and-input__form__input__search_btn"

@@ -3,180 +3,178 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body{
-	font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
 .header {
   height: 90px;
   background-color: $white;
   &_box{
-  	width: 1020px;
-  	margin: 0 auto;
-  	position: relative;
-		&__logo-and-input{
-			color: rgb(51, 51, 51);
-			width: 100%;
-			display: inline-flex;
-			&__logo{
-				height: 50px;
-				width: 170px;
-			}
-			&__form{
-				margin-top: 8px;
-				width: 100%;
-				position: relative;
-				&__input{
-					background: #fafafa;
-					width: 100%;
-					height: 36px;
-					border: 1px solid #ccc;
-					border-radius: 4px;
-					line-height: 1.5;
-					font-size: 16px;
-					padding: 9px 32px 9px 8px;
-					&:focus{
-						border: 1px solid #0099e8;
-						outline-style: none;
-					}
-					&__search{
-						position: absolute;
-						top: 9px;
-						right: 10px;
-						display: none;
-						&_btn{
-						position: absolute;
-						top: 9px;
-						right: 10px;
-						color: #333;
-						}
-					}
-				}
-			}
-		}
-
-		&__how-to__look-for {
-			display: inline-block;
-			position: absolute;
-			left: 15px;
-			top: 50px;
-			color: #333;
-		  &_list{
-		  	display: flex;
-		  	height: 38px;
-		  	line-height: 38px;
-		  	font-size: 14px;
-			  &_btn__brand{
-			  	margin-left: 14px;
-			  	&:hover{
-						cursor: pointer;
-					}
-			  }
-			}
-		}
-
-		&__userbox{
-			display: inline-block;
-			position: absolute;
-			right: 0px;
-			top: 50px;
-			line-height: 32px;
-			&_user{
-				display: flex;
-				&__mypage{
-					display: flex;
-					color: $black;
-					& span{
-						font-size: 14px;
-						margin: 0 0 0 8px;
-					}
-					&:hover{
-						color: $link-color;
-					}
-					&__icon{
-						width: 32px;
-						height: 32px;
-						border-radius: 50%;
-						overflow: hidden;
-					}
-				}
-				&__notice{
-					position: relative;
-					display: inline;
-					font-size: 14px;
-					margin: 0 0 0 16px;
-					color: $black;
-					& span {
-						font-size: 14px;
-						margin: 0 0 0 6px;
-					}
-					&:hover{
-						color: $link-color;
-					}
-					&__icon {
-						font-size: 16px;
-					}
-					&__budge {
-						position: absolute;
-						top: -12px;
-						left: 10px;
-						width: 20px;
-						height: 20px;
-						line-height: 20px;
-						border-radius: 50%;
-						background-color: $red;
-						color: $white;
-						font-size: 10px;
-						text-align: center;
-					}
-				}
-				&__todo {
-					display: inline;
-					font-size: 1px;
-					color: $black;
-					margin: 0 0 0 16px;
-					& span {
-						font-size: 14px;
-						margin: 0 0 0 6px;
-					}
-					&:hover {
-						color: $link-color;
-					}
-					&__icon {
-						font-size: 20px;
-					}
-				}
-				&_login{
-					height: 32px;
-					font-size: 13px;
-					display: inline-block;
-					color: #fff;
-					border: 1px solid #ea352d;
-					background-color: #ea352d;
-					padding: 0 10px;
-					margin-right: 10px;
-					border-radius: 4px;
-					&:hover{
-						cursor: pointer;
-					}
-				}
-				&_signup{
-					height: 32px;
-					font-size: 13px;
-					display: inline-block;
-					color: #0099e8;
-					border: 1px solid #0099e8;
-					padding: 0 10px;
-					border-radius: 4px;
-					&:hover{
-						color: #fff;
-						border: 1px solid #0099e8;
-						background-color: #0099e8;
-						cursor: pointer;
-					}
-				}
-			}
-		}
-	}
+    width: 1020px;
+    margin: 0 auto;
+    position: relative;
+    &__logo-and-input{
+      color: rgb(51, 51, 51);
+      width: 100%;
+      display: inline-flex;
+      &__logo{
+        height: 50px;
+        width: 170px;
+      }
+      &__form{
+        margin-top: 8px;
+        width: 100%;
+        position: relative;
+        &__input{
+          background: #fafafa;
+          width: 100%;
+          height: 36px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          line-height: 1.5;
+          font-size: 16px;
+          padding: 9px 32px 9px 8px;
+          &:focus{
+            border: 1px solid #0099e8;
+            outline-style: none;
+          }
+          &__search{
+            position: absolute;
+            top: 9px;
+            right: 10px;
+            display: none;
+            &_btn{
+              position: absolute;
+              top: 9px;
+              right: 10px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+    &__how-to__look-for {
+      display: inline-block;
+      position: absolute;
+      left: 15px;
+      top: 50px;
+      color: #333;
+      &_list{
+        display: flex;
+        height: 38px;
+        line-height: 38px;
+        font-size: 14px;
+        &_btn__brand{
+          margin-left: 14px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    &__userbox{
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 50px;
+      line-height: 32px;
+      &_user{
+        display: flex;
+        &__mypage{
+          display: flex;
+          color: $black;
+          & span{
+            font-size: 14px;
+            margin: 0 0 0 8px;
+          }
+          &:hover{
+            color: $link-color;
+          }
+          &__icon{
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+        }
+        &__notice{
+          position: relative;
+          display: inline;
+          font-size: 14px;
+          margin: 0 0 0 16px;
+          color: $black;
+          & span {
+            font-size: 14px;
+            margin: 0 0 0 6px;
+          }
+          &:hover{
+            color: $link-color;
+          }
+          &__icon {
+            font-size: 16px;
+          }
+          &__budge {
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            background-color: $red;
+            color: $white;
+            font-size: 10px;
+            text-align: center;
+          }
+        }
+        &__todo {
+          display: inline;
+          font-size: 1px;
+          color: $black;
+          margin: 0 0 0 16px;
+          & span {
+            font-size: 14px;
+            margin: 0 0 0 6px;
+          }
+          &:hover {
+            color: $link-color;
+          }
+          &__icon {
+            font-size: 20px;
+          }
+        }
+        &_login{
+          height: 32px;
+          font-size: 13px;
+          display: inline-block;
+          color: #fff;
+          border: 1px solid #ea352d;
+          background-color: #ea352d;
+          padding: 0 10px;
+          margin-right: 10px;
+          border-radius: 4px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+        &_signup{
+          height: 32px;
+          font-size: 13px;
+          display: inline-block;
+          color: #0099e8;
+          border: 1px solid #0099e8;
+          padding: 0 10px;
+          border-radius: 4px;
+          &:hover{
+            color: #fff;
+            border: 1px solid #0099e8;
+            background-color: #0099e8;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 }
 
 .contents {
@@ -291,7 +289,6 @@ body{
 			&_link{
 				display: block;
 				padding: 20px 0 30px;
-				// width: calc(100vw - 80px);
 				text-align: right;
 				color: #0099e8;
 				&_text{
@@ -356,8 +353,8 @@ body{
 						top: 15px;
 						left: 215px;
 						&:hover{
-						cursor: pointer;
-						opacity: 0.5;
+  						cursor: pointer;
+  						opacity: 0.5;
 						}
 					}
 				}
@@ -371,72 +368,72 @@ body{
 }
 
 .footer {
-	padding: 60px 0;
-	text-align: center;
-	background-color: #212121;
-	color: #fff;
-	&__contents{
-		display: flex;
-		justify-content: space-around;
-		margin: 0 auto;
-		width: 1020px;
-		&__links {
-			width: 23%;
-			&_title{
-				font-size: 16px;
-				font-weight: bold;
-				line-height: 40px;
-				margin: 0 0 24px;
-			}
-			&_link{
-				line-height: 25px;
-				list-style: none;
-				margin: 2px 0;
-				font-size: 14px;
-				&:hover{
-					text-decoration: underline;
-					opacity: 0.7;
-					color: #fff;
-				}
-				&_country{
-					width: 22px;
-					height: 22px;
-					margin-right: 8px;
-					vertical-align: middle;
-				}
-			}
-		}
-	}
-	&__logo{
-		margin: 40px 0 0;
-		&_image{
-		}
-		&_text{
-			font-size: 14px;
-			margin: 8px 0 0;
-		}
-	}
+  padding: 60px 0;
+  text-align: center;
+  background-color: #212121;
+  color: #fff;
+  &__contents{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 1020px;
+    &__links {
+      width: 23%;
+      &_title{
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 40px;
+        margin: 0 0 24px;
+      }
+      &_link{
+        line-height: 25px;
+        list-style: none;
+        margin: 2px 0;
+        font-size: 14px;
+        &:hover{
+          text-decoration: underline;
+          opacity: 0.7;
+          color: #fff;
+        }
+        &_country{
+          width: 22px;
+          height: 22px;
+          margin-right: 8px;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+  &__logo{
+    margin: 40px 0 0;
+    &_image{
+    }
+    &_text{
+      font-size: 14px;
+      margin: 8px 0 0;
+    }
+  }
 }
 
 .to-sell-btn{
-	height: 160px;
-	width: 160px;
-	position: fixed;
-	bottom: 32px;
-	right: 32px;
-	border-radius: 50%;
-	background-color: #ea352d;
-	text-align: center;
-	&_text{
-		display: block;
-		color: #fff;
-		font-size: 23px;
-		margin: 32px auto 0;
-	}
-	&_icon{
-		display: block;
-		color: #fff;
-		font-size: 60px;
-		margin: 3px auto 0;
-	}
+  height: 160px;
+  width: 160px;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  border-radius: 50%;
+  background-color: #ea352d;
+  text-align: center;
+  &_text{
+    display: block;
+    color: #fff;
+    font-size: 23px;
+    margin: 32px auto 0;
+  }
+  &_icon{
+    display: block;
+    color: #fff;
+    font-size: 60px;
+    margin: 3px auto 0;
+  }
 }

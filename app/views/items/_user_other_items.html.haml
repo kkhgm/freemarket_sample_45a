@@ -1,0 +1,16 @@
+%section.item-other__user-items__content__box
+  = link_to item_path(item), method: :get, class: "link item-link" do
+    %figure.item-other__user-items__content__box__photo
+      = image_tag("guitar.jpg", class: "item-image")
+    .item-other__user-items__content__box__body
+      %h3.item-other__user-items__content__box__body__name
+        = item.name
+      .item-other__user-items__content__box__num
+        .item-other__user-items__content__box__num__price
+          = "¥ #{item.price}"
+        .item-other__user-items__content__box__num__likes
+          = icon "far", "heart", class: "like-icon"
+          %span.item-other__user-items__content__box__num__likes__num
+            10
+        %p.item-other__user-items__content__box__num__tax
+          (税込)

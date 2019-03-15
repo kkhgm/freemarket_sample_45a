@@ -35,4 +35,6 @@ class Item < ApplicationRecord
   has_one :region
   has_many :itemimages
   accepts_nested_attributes_for :itemimages
+  belongs_to :seller, class_name: "User", optional: true
+  belongs_to :buyer, class_name: "User", optional: true
 end

@@ -59,4 +59,17 @@ describe ItemsController, type: :controller do
       expect(response).to redirect_to action: :index
     end
   end
+
+  describe 'GET #show' do
+    it "インスタンス変数取得の確認" do
+      item = create(:item)
+      get :show, params: { id: item}
+      expect(assigns(:item)).to eq item
+    end
+    it "showビューが描画される" do
+      item = create(:item)
+      get :show, params: { id: item }
+      expect(response).to render_template :show
+    end
+  end
 end

@@ -47,6 +47,10 @@ class ItemsController < ApplicationController
       @items = []
       @newitems = Item.all.order("created_at DESC").limit(48)
     end
+    # 検索オブジェクト
+    @search = Item.ransack(params[:q])
+    # 検索結果
+    @products = @search.result
   end
 
   private

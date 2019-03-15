@@ -1,9 +1,39 @@
 = render partial: "layouts/main-header"
 .search-contents.clearfix
 	.search-contents__side-bar
-		%form.search-contents__side-bar__form
+		= search_form_for @search, :class => "search-contents__side-bar__form" do |f|
 			.search-contents__side-bar__form_sort
 			.search-contents__side-bar__form_box
+				%h4 詳細検索
+				.search-contents__side-bar__form_box_keyword.form_group
+					#{icon "fas", "plus"} キーワードを追加する
+					= f.search_field :name_and_description_cont
+				/ .search-contents__side-bar__form_box_keyword.form_group
+				/ 	#{icon "fas", "list-ul"} カテゴリーを追加する
+				/ 	= f.collection_select :categories_name , @categories.all,:name,:name, include_blank: '選択してください'
+				.search-contents__side-bar__form_box_keyword.form_group
+					#{icon "fas", "tag"} ブランド名から探す
+					= f.search_field :name_cont
+				/ .search-contents__side-bar__form_box_keyword.form_group
+				/ 	#{icon "fas", "expand"} サイズを指定する
+				/ 	= f.collection_select :name_cont
+				.search-contents__side-bar__form_box_keyword.form_group
+					#{icon "fas", "coins"} 価格
+					= f.search_field :price_cont
+				.search-contents__side-bar__form_box_keyword.form_group
+					#{icon "fas", "star"} 商品の状態
+					= f.search_field :condition_cont
+				.search-contents__side-bar__form_box_keyword.form_group
+					#{icon "fas", "truck"} 配送料の負担
+					= f.select :shipping_charge,[["送料込み（出品者負担）","送料込み"],["着払い（購入者負担）","着払い"]],:prompt => "---", :class => "item-contents__shipping_box_charge_input"
+				.search-contents__side-bar__form_box_keyword.form_group
+					#{icon "fas", "shopping-cart"} 販売状況
+					= f.search_field :name_cont
+				.search-contents__side-bar__form_box_btns
+					.search-contents__side-bar__form_box_clear-btn
+						= f.button("クリア")
+					.search-contents__side-bar__form_box_finish-btn
+						= f.submit("完了")
 	.search-contents__container
 		%section.search-contents__container_top
 		%h2.search-contents__container_top_result 検索結果 #{@items.length}件

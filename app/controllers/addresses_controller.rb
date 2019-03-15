@@ -1,6 +1,4 @@
 class AddressesController < ApplicationController
-  layout "users"
-
   def new
     @prefectures = Prefecture.all
     @address = Address.new

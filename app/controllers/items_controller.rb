@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   	@item = Item.new
     @item.itemimages.build
   	@regions = Region.all
+    @categories = Category.eager_load(children: :children).where(parent_id: 0)
   end
 
   def create

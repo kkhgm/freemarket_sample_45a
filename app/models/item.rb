@@ -33,9 +33,9 @@ class Item < ApplicationRecord
   validates :price, presence: true
 
   has_one :region
-  has_many :itemimages
+  has_many :itemimages, dependent: :destroy
 
-  has_many :item_categories
+  has_many :item_categories, dependent: :destroy
   has_many :categories, through: :item_categories
   accepts_nested_attributes_for :itemimages
 end

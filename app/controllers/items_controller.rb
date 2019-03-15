@@ -23,10 +23,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @regions = Region.all
   end
 
   def update
-    render :action => "edit" unless @item.update(item_params)
+    if @item.update(item_params)
+      redirect_to action: "index"
+    else
+      render :action => "edit"
+    end
   end
 
    def destroy

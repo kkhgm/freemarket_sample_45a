@@ -211,6 +211,9 @@ body{
 				&__item{
 					margin-left: 20px;
 					width: 213px;
+					&::nth-child(1) {
+						margin-left: 0;
+					}
 					&__link{
 						&_figure{
 							overflow: hidden;

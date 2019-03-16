@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.itemimages.build
   	@regions = Region.all
-    @categories = Category.where(parent_id: 0)
+    @categories = Category.where(parent_id: nil)
   end
 
   def create
@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @categories = Category.where(parent_id: 0)
+    @categories = Category.where(parent_id: nil)
     @regions = Region.all
   end
 

@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2019_03_16_110838) do
     t.string "ship_from_region", null: false
     t.string "shipping_date", null: false
     t.string "price", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_items_on_name"

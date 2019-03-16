@@ -5,27 +5,16 @@
   %section.item-detail-container
     / 商品名
     %h1.item-name
-      よくわからんメーカーのよくわからんギター
+      = @item.name
     / 商品詳細
     .item-content
       / 画像
       .item-content__photos
         .item-content__photo
           .item-content__photo.active
-            = image_tag("guitar.jpg", class: "display-image" )
+            = image_tag(@itemimage.image.url, class: "display-image" )
           .item-content__photo.other
-            .item-content__photo.small.active
-              = image_tag("guitar.jpg", class: "small-image" )
-            .item-content__photo.small
-              = image_tag("guitar.jpg", class: "small-image")
-            .item-content__photo.small
-              = image_tag("guitar.jpg", class: "small-image")
-            .item-content__photo.small
-              = image_tag("guitar.jpg", class: "small-image")
-            .item-content__photo.small
-              = image_tag("guitar.jpg", class: "small-image")
-            .item-content__photo.small
-              = image_tag("guitar.jpg", class: "small-image")
+            = render partial: "itemimages", collection: @itemimages, as: :itemimage
       / 出品時の登録情報
       %table.item-content__detail-table
         %tbody.item-content__detail-table__tbody
@@ -33,7 +22,7 @@
             %th.item-content__detail-table__tbody__th
               出品者
             %td.item-content__detail-table__tbody__td
-              = link_to "ユーザーネーム", item_path, method: :get, class: "user-name link"
+              = link_to @item.seller.nickname, item_path, method: :get, class: "user-name link"
               .item-content__detail-table__tbody__td__rating
                 .item-content__detail-table__tbody__td__icon
                   = icon "fas", "laugh", class: "good-icon"
@@ -76,44 +65,44 @@
               商品の状態
             %td.item-content__detail-table__tbody__td
               %span.item-condition
-                めっちゃ汚れてます
+                = @item.condition
           %tr.item-content__detail-table__tbody__tr
             %th.item-content__detail-table__tbody__th
               配送料の負担
             %td.item-content__detail-table__tbody__td
               %span.shipping-charge
-                直払い（交通費負担無）
+                = @item.shipping_charge
           %tr.item-content__detail-table__tbody__tr
             %th.item-content__detail-table__tbody__th
               配送の方法
             %td.item-content__detail-table__tbody__td
               %span.shipping-method
-                軽トラ
+                = @item.shipping_method
           %tr.item-content__detail-table__tbody__tr
             %th.item-content__detail-table__tbody__th
               配送元地域
             %td.item-content__detail-table__tbody__td
-              = link_to "●●県", item_path, method: :get, class: "prefecture link"
+              = link_to "#{@item.ship_from_region}", item_path, method: :get, class: "prefecture link"
           %tr.item-content__detail-table__tbody__tr
             %th.item-content__detail-table__tbody__th
               発送日の目安
             %td.item-content__detail-table__tbody__td
               %span.shipping-date
-                2年以内
+                = @item.shipping_date
       / 価格
       .item-content__price
         .item-content__price__box
           %span.item-content__price__box__bold
-            ¥ 90,000
+            = "¥ #{@item.price}"
           %span.item-content__price__box__tax
             （税込）
           %span.item-content__price__box__shipping-charge
-            送料込み（可変値）
+            = @item.shipping_charge
       = link_to "購入画面に進む", item_path, method: :get,  class: "item-content__buy-btn btn-red link"
       / 説明文
       .item-content__description
         %p.item-content__description-inner
-          出来心なんです
+          = @item.description
       / いいねボタン、不適切ボタン
       .item-content__item-btn
         .item-content__item-btn__left
@@ -172,76 +161,13 @@
   .item-other
     %section.item-other__user-items
       %h2.item-other__user-items__head
-        = link_to "ユーザーネームさんのその他の出品", item_path, method: :get, class: "link item-link"
+        = link_to "#{@item.seller.nickname}さんのその他の出品", item_path, method: :get, class: "link item-link"
       .item-other__user-items__content
-        %section.item-other__user-items__content__box
-          = link_to item_path, method: :get, class: "link item-link" do
-            %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", class: "item-image")
-            .item-other__user-items__content__box__body
-              %h3.item-other__user-items__content__box__body__name
-                そこそこのギター
-              .item-other__user-items__content__box__num
-                .item-other__user-items__content__box__num__price
-                  ¥ 50,000
-                .item-other__user-items__content__box__num__likes
-                  = icon "far", "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__num__likes__num
-                    10
-                %p.item-other__user-items__content__box__num__tax
-                  (税込)
-        %section.item-other__user-items__content__box
-          = link_to item_path, method: :get, class: "link item-link" do
-            %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", class: "item-image")
-            .item-other__user-items__content__box__body
-              %h3.item-other__user-items__content__box__body__name
-                まあまあのギター
-              .item-other__user-items__content__box__num
-                .item-other__user-items__content__box__num__price
-                  ¥ 40,000
-                .item-other__user-items__content__box__num__likes
-                  = icon "far", "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__num__likes__num
-                    4
-                %p.item-other__user-items__content__box__num__tax
-                  (税込)
-        %section.item-other__user-items__content__box
-          = link_to item_path, method: :get, class: "link item-link" do
-            %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", class: "item-image")
-              .item-other__user-items__content__box__photo--sold-out
-            .item-other__user-items__content__box__body
-              %h3.item-other__user-items__content__box__body__name
-                ほどほどのようでほどほどじゃないかもしれないギター
-              .item-other__user-items__content__box__num
-                .item-other__user-items__content__box__num__price
-                  ¥ 30,000
-                .item-other__user-items__content__box__num__likes
-                  = icon "far", "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__num__likes__num
-                    95
-                %p.item-other__user-items__content__box__num__tax
-                  (税込)
-        %section.item-other__user-items__content__box
-          = link_to item_path, method: :get, class: "link item-link" do
-            %figure.item-other__user-items__content__box__photo
-              = image_tag("guitar.jpg", class: "item-image")
-            .item-other__user-items__content__box__body
-              %h3.item-other__user-items__content__box__body__name
-                それなりのギター
-              .item-other__user-items__content__box__num
-                .item-other__user-items__content__box__num__price
-                  ¥ 20,000
-                .item-other__user-items__content__box__num__likes
-                  = icon "far", "heart", class: "like-icon"
-                  %span.item-other__user-items__content__box__num__likes__num
-                    14
-                %p.item-other__user-items__content__box__num__tax
-                  (税込)
+        = render partial: "/items/user_other_items", collection: @other_items, as: :item
+
     %section.item-other__same-name-items
       %h2.item-other__user-items__head
-        = link_to "同じ商品名（同じカテゴリー名） その他の商品", item_path, method: :get, class: "link item-link"
+        = link_to "同じブランドorサイズ名（同じカテゴリー名） その他の商品", item_path, method: :get, class: "link item-link"
       .item-other__user-items__content
         %section.item-other__user-items__content__box
           = link_to item_path, method: :get, class: "link item-link" do

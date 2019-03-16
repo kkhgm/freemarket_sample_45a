@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except:[:index, :new, :create, :search ]
+  before_action :set_item, except:[:index, :new, :create, :search,:catesearch ]
 
   def index
     @items = Item.order("created_at DESC").limit(4)
@@ -57,6 +57,10 @@ class ItemsController < ApplicationController
       @items = []
       @newitems = Item.all.order("created_at DESC").limit(48)
     end
+  end
+
+  def catesearch
+    @cate_childrens = Category.where("parent_id = ?", params[:id])
   end
 
   private

@@ -26,7 +26,8 @@
           %h4 カテゴリー
           %span 必須
           = icon "fas", "angle-down", :class => "select_icon"
-          = f.select :condition, :class => "item-contents__item-about_box_condition_input",:prompt => "---", value: "#{@item.categories}"
+          = f.select :condition, options_from_collection_for_select(@categories, :id, :name),{}, :class => "item-contents__item-about_box_condition_input", :id => "parent", value: "#{@item.categories}"
+
         .item-contents__item-about_box_condition
           %h4 商品の状態
           %span 必須

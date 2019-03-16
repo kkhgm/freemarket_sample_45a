@@ -1,0 +1,23 @@
+.signin
+  = render "users/shared/header"
+  .signin__panel
+    .signin__panel__field
+      .again
+        %p あなたの情報を守るために
+        %p 再度ログインを行ってください。
+      = link_to user_facebook_omniauth_authorize_path, class: "btn facebook-btn" do
+        %span.facebook-icon
+          = icon "fab","facebook-square"
+        Facebookでログイン
+      = link_to user_google_oauth2_omniauth_authorize_path, class: "btn google-btn" do
+        %span.google-icon
+          = icon "fab","google"
+        Googleでログイン
+      .field
+        %input{type: "text", placeholder: "メールアドレス"}
+      .field
+        %input{type: "password", placeholder: "パスワード"}
+      .actions
+        %input{type: "submit", value: "ログイン", class: "btn action-btn"}
+      = link_to "パスワードをお忘れの方", new_user_registration_path, class: "terms__link"
+  = render "users/shared/footer"

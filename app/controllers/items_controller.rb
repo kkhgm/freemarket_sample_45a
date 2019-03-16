@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, except:[:index, :new, :create, :search ]
+  before_action :set_item, except:[:index, :new, :create, :search,:catesearch ]
 
   def index
     @items = Item.order("created_at DESC").limit(4)
@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.itemimages.build
   	@regions = Region.all
+    @categories = Category.where(parent_id: nil)
   end
 
   def create
@@ -30,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @categories = Category.where(parent_id: nil)
     @regions = Region.all
   end
 
@@ -55,6 +57,10 @@ class ItemsController < ApplicationController
       @items = []
       @newitems = Item.all.order("created_at DESC").limit(48)
     end
+  end
+
+  def catesearch
+    @cate_childrens = Category.where("parent_id = ?", params[:id])
   end
 
   private

@@ -21,6 +21,10 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    collection do
+      get 'catesearch'
+    end
+    resources :itemimages
   end
   resource :address, except: [:destroy, :show]
   resources :users # 後でonly: [:show, :index]など追記予定

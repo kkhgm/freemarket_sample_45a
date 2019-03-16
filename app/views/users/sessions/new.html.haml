@@ -20,5 +20,5 @@
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード"
         .actions
           = f.submit "ログイン", class: "btn action-btn"
-        = link_to "パスワードをお忘れの方", new_user_registration_path, class: "terms__link"
+        = link_to "パスワードをお忘れの方", newAgain_user_session_path, class: "terms__link"
   = render "users/shared/footer"

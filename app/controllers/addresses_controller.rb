@@ -17,11 +17,11 @@ class AddressesController < ApplicationController
   def edit
     @prefectures = Prefecture.all
     @user = User.find(current_user.id)
-    @address = Address.find_by(user_id: @user.id)
+    @address = Address.find(@user.address.id)
   end
 
   def update
-    @address = Address.find_by(user_id: current_user.id)
+    @address = Address.find(current_user.address.id)
     if @address.update(address_params)
       redirect_to user_path(current_user)
     else

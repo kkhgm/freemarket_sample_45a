@@ -16,8 +16,6 @@ class AddressesController < ApplicationController
 
   def edit
     @prefectures = Prefecture.all
-    @user = User.find(current_user.id)
-    @address = Address.find(@user.address.id)
   end
 
   def update

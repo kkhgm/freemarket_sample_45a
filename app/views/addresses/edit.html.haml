@@ -17,15 +17,15 @@
         %h2.user-info__main-title
           お名前
         %p.user-info__main-content
-          山田 太郎
+          = @user.last_name + " " + @user.first_name
         %h2.user-info__main-title
           お名前カナ
         %p.user-info__main-content
-          ヤマダ タロウ
+          = @user.last_name_kana + " " + @user.first_name_kana
         %h2.user-info__main-title
           生年月日
         %p.user-info__main-content
-          1990/01/01
+          = @user.birthday_info
         = form_for @address do |f|
           .user-info__main-field
             .field

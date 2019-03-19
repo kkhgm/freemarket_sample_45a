@@ -28,7 +28,7 @@
 
           = f.fields_for :item_categories do |fin|
             = icon "fas", "angle-down", :class => "select_icon"
-            = fin.select :category_id, options_from_collection_for_select(Category.where(parent_id: nil), :id, :name),{}, :class => "item-contents__item-about_box_condition_input", :id => "parent", value: "#{@item.categories}"
+            = fin.select :category_id, options_from_collection_for_select(@categories, :id, :name),{}, :class => "item-contents__item-about_box_condition_input", :id => "parent", value: "#{@item.categories}"
 
         .item-contents__item-about_box_condition
           %h4 商品の状態

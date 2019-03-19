@@ -57,9 +57,13 @@ class ItemsController < ApplicationController
       @items = []
       @newitems = Item.all.order("created_at DESC").limit(48)
     end
-    # 検索オブジェクト
     @search = Item.ransack(params[:q])
-    # 検索結果
+    @categories_parent = Category.where(parent_id: 0)
+    parent_number = Category.find_by(parent_id: params[:id])
+    # binding.pry
+    # @categories_child = @categories_parent[parent_number]
+    @categories_child = Category.where(parent_id: params[:id])
+    @categories_grandchild = Category.where(parent_id: params[:id])
     @products = @search.result
   end
 

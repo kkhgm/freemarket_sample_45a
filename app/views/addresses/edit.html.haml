@@ -1,5 +1,6 @@
 = render partial: "layouts/main-header"
-
+- breadcrumb :userAddress
+= breadcrumbs separator: " &rsaquo; ", link_current: true
 %main.mypage-container
   .mypage-content
     .user-info

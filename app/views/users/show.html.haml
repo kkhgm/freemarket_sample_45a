@@ -1,5 +1,6 @@
 = render partial: "layouts/main-header"
-
+- breadcrumb :mypage
+= breadcrumbs separator: " &rsaquo; ", link_current: true
 %main.mypage-container
   .mypage-content
     %section.mypage-user-icon

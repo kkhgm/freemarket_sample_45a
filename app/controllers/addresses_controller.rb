@@ -14,6 +14,19 @@ class AddressesController < ApplicationController
     end
   end
 
+  def edit
+    @prefectures = Prefecture.all
+  end
+
+  def update
+    @address = Address.find(current_user.address.id)
+    if @address.update(address_params)
+      redirect_to user_path(current_user)
+    else
+      render action: edit
+    end
+  end
+
   private
   def address_params
     params.require(:address).permit(:zip_code, :prefecture, :city, :street, :building).merge(user_id: current_user.id)

@@ -263,12 +263,12 @@ Devise.setup do |config|
   config.omniauth :google_oauth2,
                   '461758814768-i9ri29dlrcimbnqh5iciescl1ppa88ku.apps.googleusercontent.com',
                   'yi4CNI1AiPizHgDbOZNdeAo1',
-                  redirect_uri: "https://localhost:3001/users/auth/google_oauth2/callback"
+                  redirect_uri: "https://freemarket45a.xyz/users/auth/google_oauth2/callback"
   config.omniauth :facebook,
                   '2009553302500544',
                   '218054b9e360a5a3438dfac2193eb83c',
                   name: :facebook,
-                  callback_url: "https://localhost:3001/users/auth/facebook/callback"
+                  callback_url: "https://freemarket45a.xyz/users/auth/facebook/callback"
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

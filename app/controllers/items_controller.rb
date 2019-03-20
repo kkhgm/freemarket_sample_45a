@@ -57,6 +57,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def confirm_buy
+    @itemimage = Itemimage.find_by(params[:id], item_id: @item)
+    @trade = Trade.where('item_id = ?', params[:id])
+  end
+
   private
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price,:seller_id,:buyer_id,itemimages_attributes: [:id, :image]).merge(seller_id: current_user.id)

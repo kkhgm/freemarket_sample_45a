@@ -1,33 +1,34 @@
-%body
-%header
-  .conform-info__header
-    =link_to "" do
-      = embedded_svg("logo.svg", class:"mercari-icon")
+= render partial: "layouts/sub-header"
 
 .main
   %h1 購入を確定しますか？
   %section.main__item
     .main__item__info
       .main__item__info__image
-        = image_tag("m30685372065_1.jpg", :size => "148x148")
+        = image_tag(@itemimage.image.url, :size => "148x148")
       .main__item__info__item-name
-        %p アディダスオリジナル スカジャン風
+        %p
+          = @item.name
       .main__item__info__price
         .main__item__info__price__item-price
-          %p¥5,800
+          %p
+            = "¥ #{@item.price}"
         .main__item__info__price__send-price
-          %p 送料込み
-      .main__item__info__conform-point
-        .main__item__info__conform-point__no-point
+          %p
+            = @item.shipping_charge
+
+      .main__item__info__confirm-point
+        .main__item__info__confirm-point__no-point
           %p ポイントはありません
       .main__item__info__amount-price
         .main__item__info__amount-price__payment
           %p 支払い金額
         .main__item__info__amount-price__en
-          %p¥ 5,800
+          %p
+            = "¥ #{@item.price}"
     .main__item__button
-      =link_to "購入する", "/", method:""
-
+      = form_tag("/items/#{@item.id}/trades/#{@trade.first.id}", action: "update", method: :patch) do
+        %script.payjp-button{"data-key" => "#{PAYJP_PUBLIC_KEY}", :src => "https://checkout.pay.jp", :type => "text/javascript","data-text" => "購入する"}
   %section.main__delivery
     .main__delivery__info
       .main__delivery__info__inner
@@ -37,7 +38,8 @@
         .main__delivery__info__inner__address
           %p 大阪府大阪市都島区
         .main__delivery__info__inner__name
-          %p 樋上光輝
+          %p
+            = current_user.nickname
         =link_to  "", method:"" do
           %span 変更する＞
 
@@ -53,18 +55,4 @@
         =link_to  "", method:"" do
           %span 変更する＞
 
-%footer
-  .conform-info__footer
-    %ul
-      %li.conform-info__footer__pravacy
-        =link_to "" "プライバシーポリシー"
-      %li.conform-info__footer__rule
-        =link_to "" "メルカリ利用規約"
-      %li.conform-info__footer__commerce-rule
-        =link_to "" "特定商取引に関する表記"
-    .conform-info__footer__icon
-      =link_to "", method:"" do
-        = embedded_svg("logo-gray.svg", class:"mercari-grey")
-    %small ©️2019 Mercari
-
-
+= render partial: "layouts/sub-footer"

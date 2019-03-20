@@ -3,7 +3,18 @@ body{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
-.conform-info__header{
+#payjp_checkout_box input[type=button] {
+  background-color: red !important;
+  border: 1px solid red !important;
+  background-image: linear-gradient(red 0%, red 48%, red 100%) !important;
+  background-image: --webkit-linear-gradient(red 0%, red 48%, red 100%) !important;
+  height: 48px;
+  width: 320px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.confirm-info__header{
   height: 128px;
   width:100%;
   text-align: center;
@@ -53,7 +64,7 @@ body{
             display: inline-block;
           }
         }
-        &__conform-point{
+        &__confirm-point{
           margin-top: 12px;
           &__no-point{
             height: 48px;
@@ -139,7 +150,7 @@ body{
     }
 }
 
-.conform-info__footer{
+.confirm-info__footer{
   height: 220px;
   width:100%;
   text-align: center;

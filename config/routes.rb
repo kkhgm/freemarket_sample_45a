@@ -20,11 +20,13 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get 'search'
+      get ':id/confirm_buy' => 'items#confirm_buy'
     end
+    resources :trades
     resources :itemimages
   end
   resource :address, except: [:destroy, :show]
-  resources :users # 後でonly: [:show, :index]など追記予定
-
-
+  resources :users do
+    resources :payments
+  end
 end

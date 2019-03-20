@@ -98,7 +98,11 @@
             （税込）
           %span.item-content__price__box__shipping-charge
             = @item.shipping_charge
-      = link_to "購入画面に進む", item_path, method: :get,  class: "item-content__buy-btn btn-red link"
+    - if current_user.id == @item.seller_id
+      = link_to "商品の編集", edit_item_path(@item), class: "item-content__buy-btn btn-red link"
+      = link_to "この商品を削除する", "/items/#{@item.id}", method: :delete, action: "destroy", class: "item-content__buy-btn btn-red link"
+    - else
+      = link_to "購入画面に進む", "/items/#{@item.id}/confirm_buy", class: "item-content__buy-btn btn-red link", as: "item"
       / 説明文
       .item-content__description
         %p.item-content__description-inner

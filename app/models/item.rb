@@ -34,6 +34,7 @@ class Item < ApplicationRecord
 
   has_one :region
   has_many :itemimages, dependent: :destroy
+  has_one :trade
 
   has_many :item_categories, dependent: :destroy
   has_many :categories, through: :item_categories

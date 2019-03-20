@@ -48,3 +48,19 @@ $font-color-base: #fff;
     opacity: 1;
   }
 }
+
+.breadcrumbs {
+  background-color: #fff;
+  font-size: 14px;
+  border-top: 1px solid #eee;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 140px;
+  letter-spacing: 0.5px;
+  a {
+    color: #222;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

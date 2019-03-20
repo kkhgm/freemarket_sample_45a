@@ -1,5 +1,6 @@
 = render partial: "layouts/main-header"
-
+- breadcrumb :item, @item
+= breadcrumbs separator: " &rsaquo; ", link_current: true
 / 全体
 %main.items-wrapper
   %section.item-detail-container

@@ -1,6 +1,4 @@
 class AddressesController < ApplicationController
-  layout "users"
-
   def new
     @prefectures = Prefecture.all
     @address = Address.new
@@ -13,6 +11,19 @@ class AddressesController < ApplicationController
       redirect_to new4_user_registration_path
     else
       render :new
+    end
+  end
+
+  def edit
+    @prefectures = Prefecture.all
+  end
+
+  def update
+    @address = Address.find(current_user.address.id)
+    if @address.update(address_params)
+      redirect_to user_path(current_user)
+    else
+      render action: edit
     end
   end
 

@@ -1,5 +1,6 @@
 = render partial: "layouts/main-header"
-
+- breadcrumb :mypage
+= breadcrumbs separator: " &rsaquo; ", link_current: true
 %main.mypage-container
   .mypage-content
     %section.mypage-user-icon
@@ -102,6 +103,7 @@
         %ul.mypage-content__tab-content-active
           %li.mypage-content__tab-content__not-found.bold
             取引中の商品がありません
+
   = render partial: "shared/side_bar"
 
 = render partial: "layouts/main-footer"

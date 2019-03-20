@@ -7,7 +7,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new0
   end
 
+  def sns
+    @user = User.find(session[:id])
+  end
+
   def after_sign_up_path_for(resource)
+    new2_user_registration_path
+  end
+
+  def after_update_path_for(resource)
     new2_user_registration_path
   end
 
@@ -44,7 +52,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

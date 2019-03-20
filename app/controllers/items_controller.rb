@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-
-  before_action :set_item, except:[:index, :new, :create, :search ]
+  before_action :set_item, except:[:index, :new, :create, :search,:catesearch ]
 
   def index
     @items = Item.order("created_at DESC").limit(4)
@@ -8,8 +7,10 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.item_categories.build
     @item.itemimages.build
   	@regions = Region.all
+    @categories = Category.where(parent_id: nil)
   end
 
   def create
@@ -30,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @categories = Category.where(parent_id: nil)
     @regions = Region.all
   end
 
@@ -57,6 +59,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def catesearch
+    @cate_childrens = Category.where("parent_id = ?", params[:id])
+  end
+
   def confirm_buy
     @itemimage = Itemimage.find_by(params[:id], item_id: @item)
     @trade = Trade.where('item_id = ?', params[:id])
@@ -64,7 +70,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price,:seller_id,:buyer_id,itemimages_attributes: [:id, :image]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price,:seller_id,:buyer_id,itemimages_attributes: [:id, :image], item_categories_attributes:[:id, :category_id]).merge(seller_id: current_user.id)
   end
 
   def set_item

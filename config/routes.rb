@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   passwords:     'users/passwords',
   registrations: 'users/registrations',
   sessions:      'users/sessions',
+  omniauth_callbacks: 'users/omniauth_callbacks'
   }
   devise_scope :user do
+    get 'signinAgain' => 'users/sessions#newAgain', as: :newAgain_user_session
     get 'signup0' => 'users/registrations#new0', as: :new0_user_registration
+    get 'signupsns' => 'users/registrations#sns', as: :new_user_registration_sns
     # get 'signup1' => 'devise/registrations#new1', as: :new1_user_registration
     get 'signup2' => 'users/registrations#new2', as: :new2_user_registration
     get 'signup25' => 'users/registrations#new25', as: :new25_user_registration
@@ -20,10 +23,11 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get 'search'
+      get 'catesearch'
       get ':id/confirm_buy' => 'items#confirm_buy'
     end
-    resources :trades
     resources :itemimages
+    resources :trades
   end
   resource :address, except: [:destroy, :show]
   resources :users do

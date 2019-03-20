@@ -8,11 +8,11 @@
         %span.email-icon
           = icon "far", "envelope"
         メールアドレスで登録
-      = button_to new_user_registration_path, class: "btn facebook-btn" do
+      = button_to user_facebook_omniauth_authorize_path, class: "btn facebook-btn" do
         %span.facebook-icon
           = icon "fab", "facebook-square"
         Facebookで登録
-      = button_to new_user_registration_path, class: "btn google-btn" do
+      = button_to user_google_oauth2_omniauth_authorize_path, class: "btn google-btn" do
         %span.google-icon
           = icon "fab", "google"
         Googleで登録

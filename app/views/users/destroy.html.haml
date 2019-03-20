@@ -1,5 +1,6 @@
 = render partial: "layouts/main-header"
-
+- breadcrumb :logout
+= breadcrumbs separator: " &rsaquo; ", link_current: true
 %main.mypage-container
   .mypage-content
     / ログアウト

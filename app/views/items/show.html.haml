@@ -12,7 +12,8 @@
       .item-content__photos
         .item-content__photo
           .item-content__photo.active
-            = image_tag(@itemimage.image.url, class: "display-image" )
+            / = image_tag(@itemimage.image.url, class: "display-image" )
+            = image_tag(@itemimage.first.image.url, class: "display-image" )
           .item-content__photo.other
             = render partial: "itemimages", collection: @itemimages, as: :itemimage
       / 出品時の登録情報

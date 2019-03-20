@@ -26,7 +26,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @other_items = Item.where( [ "id != ? and seller_id = ?", params[:id], @item.seller_id ] ).order("created_at DESC").limit(6)
-    @itemimage = Itemimage.find_by(params[:id], item_id: @item)
+    @itemimage = Itemimage.where(item_id: @item)
+    # @itemimage = Itemimage.find_by(params[:id], item_id: @item)
     @itemimages = Itemimage.where("item_id = ?", @item).limit(10)
   end
 

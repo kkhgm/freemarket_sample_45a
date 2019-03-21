@@ -65,11 +65,11 @@ class ItemsController < ApplicationController
     @categories_child = Category.where(parent_id: params[:id])
     @categories_grandchild = Category.where(parent_id: params[:id])
     @products =
-      if params[:q] == nil
-        Item.none
-      else
-        @search.result(distinct: true)
-      end
+    if params[:q] == nil
+      Item.none
+    else
+      @search.result(distinct: true).limit(48).page(params[:page]).per(1)
+    end
   end
 
   def catesearch

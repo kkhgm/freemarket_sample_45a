@@ -110,7 +110,7 @@
         = paginate @items
     - elsif @items.length == 0 && @products.length != 0
       %section.search-contents__container_top
-      %h2.search-contents__container_top_result 検索結果 #{@products.offset_value}-#{@items.offset_value + @products.length}件
+      %h2.search-contents__container_top_result 検索結果 #{@products.offset_value}-#{@products.offset_value + @products.length}件
       .search-contents__container_main
         = render partial: "search_item", collection: @products, as: :item
         = paginate @products

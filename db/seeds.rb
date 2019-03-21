@@ -8,6 +8,7 @@
 
 # require 'faker'
 
+# 商品出品データ
 # 10.times do |n|
 #   name = Faker::Name.name
 #   description = "test_description"
@@ -30,13 +31,36 @@
 #     )
 # end
 
-
 # cateforyの投入
-require 'csv'
+# require 'csv'
 
-CSV.foreach("db/category.csv") do |row|
-  name = row[0]
-  parent_id = row[1]
+# CSV.foreach("db/category.csv") do |row|
+#   name = row[0]
+#   parent_id = row[1]
 
-  Category.create(name:name, parent_id:parent_id)
+#   Category.create(name:name, parent_id:parent_id)
+# end
+
+# ユーザー
+# User.create!(
+#   [
+#     {
+#      email: 'mercari1@test.com',
+#      password: '111111',
+#      name: 'テスト太郎',
+#     },
+#     {
+#      email: 'mercari2@test.com',
+#      password: '222222',
+#      name: 'テスト子',
+#     }
+#   ]
+# )
+
+# トレード
+10.times do |n|
+  Trade.create!(
+    item_id: n+1,
+    status: "出品中",
+  )
 end

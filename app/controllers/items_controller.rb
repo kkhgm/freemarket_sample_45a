@@ -53,18 +53,15 @@ class ItemsController < ApplicationController
   end
 
   def search
-    # binding.pry
     @items = Item.where("name LIKE :text OR description LIKE :text", text: "%#{params[:text]}%").order("created_at DESC").page(params[:page]).per(1)
     if params[:text].present? == false
       @items = []
-      @newitems = Item.all.order("created_at DESC").limit(48)
+      @newitems = Item.all.order("created_at DESC").limit(48).page(params[:page]).per(1)
     end
     @products = ""
-    # binding.pry
     @search = Item.ransack(params[:q])
 
     @categories_parent = Category.where(parent_id: 0)
-    # @categories_child = @categories_parent[parent_number]
     @categories_child = Category.where(parent_id: params[:id])
     @categories_grandchild = Category.where(parent_id: params[:id])
     @products =

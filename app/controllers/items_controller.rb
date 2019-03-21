@@ -26,8 +26,9 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @other_items = Item.where( [ "id != ? and seller_id = ?", params[:id], @item.seller_id ] ).order("created_at DESC").limit(6)
-    @itemimage = Itemimage.find_by(params[:id], item_id: @item)
+    @itemimage = Itemimage.where(item_id: @item)
     @itemimages = Itemimage.where("item_id = ?", @item).limit(10)
+    @category = @item.categories
   end
 
   def edit
@@ -63,12 +64,12 @@ class ItemsController < ApplicationController
     @cate_childrens = Category.where("parent_id = ?", params[:id])
   end
 
+private
   def confirm_buy
     @item_image = @item.itemimages[0].image.url
     @trade = Trade.where('item_id = ?', params[:id])
   end
 
-  private
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price,:seller_id,:buyer_id,itemimages_attributes: [:id, :image], item_categories_attributes:[:id, :category_id]).merge(seller_id: current_user.id)
   end

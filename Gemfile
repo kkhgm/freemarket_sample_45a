@@ -92,4 +92,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'thin'
 gem 'gretel'
-gem "recaptcha"
+gem 'recaptcha'
+gem 'high_voltage'
+

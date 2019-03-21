@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
     @other_items = Item.where( [ "id != ? and seller_id = ?", params[:id], @item.seller_id ] ).order("created_at DESC").limit(6)
     @itemimage = Itemimage.where(item_id: @item)
     @itemimages = Itemimage.where("item_id = ?", @item).limit(10)
+    @category = @item.categories
   end
 
   def edit

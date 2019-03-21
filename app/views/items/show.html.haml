@@ -42,15 +42,16 @@
             %th.item-content__detail-table__tbody__th
               カテゴリー
             %td.item-content__detail-table__tbody__td
-              = link_to "親カテゴリー", item_path, class: "item-content__detail-table__tbody__td__category link"
-              = link_to item_path, method: :get, class: "item-content__detail-table__tbody__td__category link" do
-                = icon "fas", "angle-right"
-                %span
-                  子カテゴリー
-              = link_to item_path, class: "item-content__detail-table__tbody__td__category link" do
-                = icon "fas", "angle-right"
-                %span
-                  孫カテゴリー
+              -@category.each do |cate|
+                = link_to "#{cate.parent.parent.name}", item_path, method: :get, class: "item-content__detail-table__tbody__td__category link"
+                = link_to item_path, method: :get, class: "item-content__detail-table__tbody__td__category link" do
+                  = icon "fas", "angle-right"
+                  %span
+                    "#{cate.parent.parent.name}"
+                = link_to "/categories/#{cate.id}", method: :get, class: "item-content__detail-table__tbody__td__category link" do
+                  = icon "fas", "angle-right"
+                  %span
+                    "#{cate.parent.name}"
           %tr.item-content__detail-table__tbody__tr
             %th.item-content__detail-table__tbody__th
               ブランド

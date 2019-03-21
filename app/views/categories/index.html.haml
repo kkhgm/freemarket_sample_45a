@@ -1,4 +1,6 @@
 = render partial: "layouts/main-header"
+- breadcrumb :categories
+= breadcrumbs separator: " &rsaquo; ", link_current: true
 .category
   .category-nav
     %h1 カテゴリー一覧

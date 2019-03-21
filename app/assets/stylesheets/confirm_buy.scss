@@ -1,13 +1,12 @@
-body{
-  background-color: $background-color;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-}
-
 $button-color: #ff0000;
 $button-text-color: #fff;
 $link-color: #0099e8;
 $background-color: #F5F5F5;
 
+body{
+  background-color: $background-color;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
 
 #payjp_checkout_box input[type=button] {
   background-color: $button-color !important;

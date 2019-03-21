@@ -27,3 +27,5 @@
 public/uploads/*
 /config/master.key
 config/secrets.yml
+config/initializers/setting.rb
+

@@ -1,7 +1,8 @@
 @import "./reset";
 @import "./variables";
 @import "./items";
-@import "./conform_buy";
+@import "./confirm_buy";
+@import "./trade_complete";
 @import "./items_new";
 @import "./user";
 @import "./addresses";
@@ -9,7 +10,6 @@
 @import "modules/signin";
 @import "modules/devise_footer";
 @import "modules/devise_common";
-@import "./conform_buy";
 @import "./item_detail";
 @import "./add-card";
 @import "./card-info";

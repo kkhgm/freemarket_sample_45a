@@ -1,16 +1,17 @@
 @import "mixin/single-container";
 
+$border-color: #eee;
+$link-color: #0099e8;
 
 .payment {
-  padding-top: 24px;
-  background-color: #eee;
   height: 100%;
   &__container {
     @include single-container;
+    padding: 0 64px 52px;
     &__title {
       height: 50px;
       width: 100%;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid $border-color;
       h2 {
         line-height: 50px;
         font-size: 24px;
@@ -21,25 +22,29 @@
     }
     &__box {
       width: 320px;
-      margin: 50px auto 0;
-      p{
+      margin: 64px auto 0;
+      p {
         font-weight: bold;
         font-size: 16px;
       }
-      .actions{
+      .actions {
         margin-top: 20px;
       }
     }
     &__about{
-        border-top: 1px solid #eee;
-        height: 70px;
-        text-align: right;
-        margin: 40px;
-        padding-top: 20px;
-      a{
-        text-decoration: none;
-        color:#0099e8;
-        font-size: 15px;
+      border-top: 1px solid $border-color;
+      height: 70px;
+      text-align: right;
+      margin: 36px 0 0;
+      padding-top: 40px;
+      & a {
+      text-decoration: none;
+      color: $link-color;
+      font-size: 14px;
+      }
+      &__icon {
+        margin-left: 4px;
+        font-weight: 600;
       }
     }
   }

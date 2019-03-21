@@ -1,27 +1,46 @@
 @import "mixin/single-container";
 
+hr {
+  border: 1px solid rgba(234, 53, 44, 0.3);
+  margin: 8px 0;
+}
+.form-require {
+  margin-left: 8px;
+}
+#result {
+  padding: 8px 0;
+}
+
 .card {
-  padding-top: 24px;
-  background-color: #eee;
-  height: 100%;
+  &-help {
+    font-size: 14px;
+  }
+  &-question {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: #0199E8;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 14px;
+    font-size: 12px;
+  }
   &__container {
     @include single-container;
-    &__title {
-      height: 50px;
-      width: 100%;
+    & h4 {
+      padding: 8px 24px;
+      line-height: 1.4;
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      text-align: center;
       border-bottom: 1px solid #eee;
-      h2 {
-        line-height: 50px;
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-        text-align: center;
-      }
     }
     &__field {
-      width: 320px;
-      height: 600px;
-      margin: 40px auto;
+      max-width: 320px;
+      padding: 64px 0;
+      margin: 0 auto;
       .field {
         &__icon{
           margin: 10px 0;
@@ -32,7 +51,7 @@
           }
         }
         &__validity {
-          margin-top: 20px;
+          margin-top: 38px;
           select {
             width: 40%;
             height: 45px;
@@ -44,9 +63,9 @@
           }
         }
         &__security{
-          margin-top: 40px;
+          margin-top: 38px;
           &__question{
-            margin-top: 10px;
+            margin-top: 8px;
             text-align: right;
             a{
               text-decoration: none;
@@ -63,4 +82,5 @@
     }
   }
 }
+
 

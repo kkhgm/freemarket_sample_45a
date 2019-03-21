@@ -21,15 +21,21 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :items do
+    get 'confirm_buy', on: :member
     collection do
       get 'search'
-    end
-    collection do
       get 'catesearch'
     end
     resources :itemimages
+    resources :trades
   end
   resource :address, except: [:destroy, :show]
+<<<<<<< HEAD
   resources :users # 後でonly: [:show, :index]など追記予定
 
+=======
+  resources :users do
+    resources :payments
+  end
+>>>>>>> yu40ta/master
 end

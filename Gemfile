@@ -94,4 +94,5 @@ gem 'thin'
 gem 'gretel'
 gem 'recaptcha'
 gem 'high_voltage'
+gem 'payjp'
 

@@ -1,8 +1,14 @@
+$mercari-red: #EA352C;
+$font-color-base: #fff;
+
 .field {
-  padding-bottom: 30px;
   label {
     font-weight: bold;
-    font-size: 13px;
+    font-size: 14px;
+  }
+  .form-require {
+    display: inline;
+    vertical-align: top;
   }
   input {
     width: 100%;
@@ -16,13 +22,13 @@
 }
 
 .required {
-  background-color: red;
-  color: #fff;
+  background-color: $mercari-red;
+  color: $font-color-base;
   font-size: 11px;
-  width: 30px;
-  height: 17px;
+  line-height: 1;
+  vertical-align: top;
+  padding: 2px 4px;
   border-radius: 2px;
-  line-height: 17px;
   text-align: center;
   display: inline-block;
 }
@@ -35,8 +41,8 @@
   }
 }
 .action-btn {
-  background-color: red;
-  color: #fff;
+  background-color: $mercari-red;
+  color: $font-color-base;
   opacity: 0.9;
   &:hover {
     opacity: 1;

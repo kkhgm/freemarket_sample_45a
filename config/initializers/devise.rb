@@ -1,8 +1,5 @@
 # frozen_string_literal: true
-Recaptcha.configure do |config|
-  config.site_key = "6LcpApkUAAAAANfkpbm_Y6yOqiqS9Mei8uYpixat"
-  config.secret_key = "6LcpApkUAAAAAPsHB2ck3aY5tbqeeKXnMW_Ej8Tz"
-end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|

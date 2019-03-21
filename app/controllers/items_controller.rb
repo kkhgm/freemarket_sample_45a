@@ -64,12 +64,12 @@ class ItemsController < ApplicationController
     @cate_childrens = Category.where("parent_id = ?", params[:id])
   end
 
-private
   def confirm_buy
     @item_image = @item.itemimages[0].image.url
     @trade = Trade.where('item_id = ?', params[:id])
   end
 
+private
   def item_params
     params.require(:item).permit(:name,:description,:condition,:shipping_method,:shipping_charge,:ship_from_region,:shipping_date,:price,:seller_id,:buyer_id,itemimages_attributes: [:id, :image], item_categories_attributes:[:id, :category_id]).merge(seller_id: current_user.id)
   end

@@ -21,10 +21,10 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :items do
+    get 'confirm_buy', on: :member
     collection do
       get 'search'
       get 'catesearch'
-      get ':id/confirm_buy' => 'items#confirm_buy'
     end
     resources :itemimages
     resources :trades

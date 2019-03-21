@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
   end
 
   def confirm_buy
-    @itemimage = Itemimage.find_by(params[:id], item_id: @item)
+    @item_image = Itemimage.find_by(item_id: @item.id)
     @trade = Trade.where('item_id = ?', params[:id])
   end
 

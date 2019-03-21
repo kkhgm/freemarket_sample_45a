@@ -7,11 +7,58 @@
     margin: 0 20px 0 0;
     &__form{
       &_sort{
+        background-color: #fff;
+        padding: 16px;
+        & h4{
+          font-size: 16px;
+          font-weight: 600;
+          margin: 0 0 16px;
+        }
       }
       &_box{
         background-color: #fff;
         margin-top: 40px;
         padding: 16px;
+        &_btns {
+          height: 90px;
+          padding: 40px 0 0;
+          &_clear-btn {
+            float: left;
+            width: 45%;
+            line-height: 48px;
+            font-size: 14px;
+            background: #aaa;
+            border: 1px solid #aaa;
+            color: #fff;
+            text-align: center;
+          }
+          &_finish-btn {
+            float: right;
+            width: 45%;
+            line-height: 48px;
+            font-size: 14px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            cursor: pointer;
+            padding: 0;
+            &:hover{
+              opacity: 0.7;
+            }
+          }
+        }
+        &_keyword{
+          margin: 24px 0 0;
+          & i {
+            color: #888;
+            font-size: 16px;
+            line-height: 1;
+          }
+        }
+        & h4{
+          font-size: 16px;
+          font-weight: 600;
+        }
       }
     }
   }
@@ -127,5 +174,196 @@
 }
 
 .form_group {
-  margin: 24px 0 0;
+  margin: 40px 0 0;
+  i {
+    color: #888;
+    font-size: 16px;
+    line-height: 1;
+  }
+  &_title{
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &_span{
+    display: inline-block;
+    width: 6%;
+    font-size: 14px;
+    text-align: center;
+  }
+  &_select{
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    margin: 8px 0 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+    -webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+    -moz-appearance: none;  /* ベンダープレフィックス(Firefox用) */
+    appearance: none; /* 標準のスタイルを無効にする */
+    &_icon{
+        position: absolute;
+        top: 40px;
+        left: 370px;
+        color: #aaa;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  &_box{
+    margin: 8px 0 0;
+    border: 1px solid #ccc;
+    height: 48px;
+    line-height: 1.5;
+    padding: 0 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    &_price{
+      border: 1px solid #ccc;
+      height: 48px;
+      line-height: 1.5;
+      padding: 10px 16px 8px;
+      margin: 8px 0 0;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      width: 45%;
+    }
+  }
+}
+
+.check-box{
+  &__box{
+    display: inline-block;
+    height: 20px;
+    width: 48%;
+    word-break: break-word;
+    position: relative;
+    margin: 16px 0 0 0;
+    & input{
+      position: absolute;
+      top: 30%;
+      left: 0;
+      z-index: 1;
+      height: 20px;
+      width: 20px;
+      border-radius: 2px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 10px;
+      line-height: 17px;
+      text-align: center;
+      color: #fff;
+      vertical-align: middle;
+    }
+    & label{
+      position: absolute;
+      top: 40%;
+      margin: 0 0 0 28px;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+  }
+}
+
+.for-icon {
+  &_categories {
+    &_parent {
+      position: relative;
+    }
+    &_child {
+      position: relative;
+    }
+    &_grandchild {
+      position: relative;
+    }
+  }
+  &_price {
+    position: relative;
+  }
+  &_bland{
+    position: relative;
+  }
+}
+
+.select_icon{
+  position: absolute;
+  top: 25px;
+  left: 220px;
+}
+
+.sort_link {
+  display: block;
+  width: 100%;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  margin: 8px 0 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  cursor: pointer;
+  text-align: left;
+  & p{
+    display: inline-block;
+    color: black;
+    font-size: 16px;
+    line-height: 48px;
+  }
+}
+
+.pagination {
+  width: 100%;
+  text-align: center;
+  margin: 40px 0 0;
+  &_link {
+    display: inline-block;
+    height: 42px;
+    width: 42px;
+    vertical-align: middle;
+    line-height: 42px;
+    border-radius: 4px;
+    color: #333;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    &_next {
+      margin-left: 160px;
+    }
+    &_prev {
+      margin-right: 160px;
+    }
+  }
+  &_page {
+    display: inline-block;
+    height: 42px;
+    width: 42px;
+    vertical-align: middle;
+    line-height: 42px;
+    border-radius: 4px;
+    color: #333;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+  &_current {
+    display: inline-block;
+    height: 42px;
+    width: 42px;
+    vertical-align: middle;
+    line-height: 42px;
+    border-radius: 4px;
+    color: #fff;
+    background: #ea352d;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
 }

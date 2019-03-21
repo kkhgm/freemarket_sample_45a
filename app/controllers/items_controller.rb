@@ -52,19 +52,26 @@ class ItemsController < ApplicationController
   end
 
   def search
+    # binding.pry
     @items = Item.where("name LIKE :text OR description LIKE :text", text: "%#{params[:text]}%").order("created_at DESC")
-    if params[:text].present? == false || @items.length == 0
+    if params[:text].present? == false
       @items = []
       @newitems = Item.all.order("created_at DESC").limit(48)
     end
-    @search = Item.ransack(params[:q])
-    @categories_parent = Category.where(parent_id: 0)
-    parent_number = Category.find_by(parent_id: params[:id])
+    @products = ""
     # binding.pry
+    @search = Item.ransack(params[:q])
+
+    @categories_parent = Category.where(parent_id: 0)
     # @categories_child = @categories_parent[parent_number]
     @categories_child = Category.where(parent_id: params[:id])
     @categories_grandchild = Category.where(parent_id: params[:id])
-    @products = @search.result
+    @products =
+      if params[:q] == nil
+        Item.none
+      else
+        @search.result(distinct: true)
+      end
   end
 
   def catesearch

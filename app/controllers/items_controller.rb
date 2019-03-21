@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, except:[:index, :new, :create, :search,:catesearch ]
+  before_action :sign_in_user, only:[:new, :create, :edit, :update, :destroy]
 
   def index
     @items = Item.order("created_at DESC").limit(4)

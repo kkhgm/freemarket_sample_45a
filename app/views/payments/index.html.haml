@@ -1,0 +1,19 @@
+= render partial: "layouts/main-header"
+
+%main.mypage-container
+  .payment
+    .payment__container
+      .payment__container__title
+        %h2 支払い方法
+      .payment__container__box
+        %p クレジットカード一覧
+        .actions
+          = button_to "クレジットカードを追加する", new_user_payment_path, method: :get, class: "btn action-btn"
+      .payment__container__about
+        = link_to "" do
+          %span.payment__container__about__text 支払い方法について
+          = icon "fas", "angle-right" , class: "payment__container__about__icon"
+
+  = render partial: "shared/side_bar"
+
+= render partial: "layouts/main-footer"

@@ -1,0 +1,74 @@
+= render partial: "layouts/main-header"
+
+%main.mypage-container
+  %section.card
+    .card__container
+      = form_tag("/users/#{current_user.id}/payments", method: :post, class: "ui form", id: "change-form") do
+        %h4.ui.dividing.card__container__title クレジットカード情報入力
+        .card__container__field
+          .field
+            .field__number
+              %label カード番号
+              %span.required.form-require 必須
+              %input{:maxlength => "16", :name => "number", :placeholder => "半角数字のみ", :type => "text"}/
+            .field__icon
+              = embedded_svg("visa.svg", class: "field__icon__size")
+              = embedded_svg("master-card.svg", class: "field__icon__size")
+              = embedded_svg("saison-card.svg", class: "field__icon__size")
+              = embedded_svg("jcb.svg", class: "field__icon__size")
+              = embedded_svg("american_express.svg", class: "field__icon__size")
+              = embedded_svg("dinersclub.svg", class: "field__icon__size")
+              = embedded_svg("discover.svg", class: "field__icon__size")
+            .field__validity
+              .fields
+                .ten.wide.field
+                  %label 有効期限
+                  %span.required.form-require 必須
+                  .two.fields
+                    .field__validity__box
+                      %select.ui.fluid.search.dropdown.select-box{:name => "exp_month"}
+                        %option{:value => "1"} 01
+                        %option{:value => "2"} 02
+                        %option{:value => "3"} 03
+                        %option{:value => "4"} 04
+                        %option{:value => "5"} 05
+                        %option{:value => "6"} 06
+                        %option{:value => "7"} 07
+                        %option{:value => "8"} 08
+                        %option{:value => "9"} 09
+                        %option{:value => "10"} 10
+                        %option{:value => "11"} 11
+                        %option{:value => "12"} 12
+                      %span.unit 月
+                    .field__validity__box
+                      %select.ui.fluid.search.dropdown{:name => "exp_year"}
+                        %option{:value => "2019"} 19
+                        %option{:value => "2020"} 20
+                        %option{:value => "2021"} 21
+                        %option{:value => "2022"} 22
+                        %option{:value => "2023"} 23
+                        %option{:value => "2024"} 24
+                        %option{:value => "2025"} 25
+                        %option{:value => "2026"} 26
+                        %option{:value => "2027"} 27
+                      %span.unit 年
+            .six.wide.field
+              %label セキュリティコード
+              %span.required.form-require 必須
+              %input{:maxlength => "4", :name => "cvc", :placeholder => "カード背面４桁もしくは３桁の番号", :type => "text"}/
+              .field__security__question
+                = link_to "" do
+                  %span.card-question ?
+                  %span.card-help カード裏面の番号とは？
+          .actions
+            %button.ui.button.fill.btn.action-btn{:tabindex => "0"}
+              サンプルのカード番号を使う
+            %hr
+            .button.ui.primary.button.submit.btn.action-btn
+              追加する
+            %p#result
+            %input.payjp-token{ type: "hidden", name: "payjpToken", value: "" }
+
+  = render partial: "shared/side_bar"
+
+= render partial: "layouts/main-footer"

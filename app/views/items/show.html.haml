@@ -1,5 +1,6 @@
 = render partial: "layouts/main-header"
-
+- breadcrumb :item, @item
+= breadcrumbs separator: " &rsaquo; ", link_current: true
 / 全体
 %main.items-wrapper
   %section.item-detail-container
@@ -41,12 +42,12 @@
             %th.item-content__detail-table__tbody__th
               カテゴリー
             %td.item-content__detail-table__tbody__td
-              = link_to "親カテゴリー", item_path, method: :get, class: "item-content__detail-table__tbody__td__category link"
+              = link_to "親カテゴリー", item_path, class: "item-content__detail-table__tbody__td__category link"
               = link_to item_path, method: :get, class: "item-content__detail-table__tbody__td__category link" do
                 = icon "fas", "angle-right"
                 %span
                   子カテゴリー
-              = link_to item_path, method: :get, class: "item-content__detail-table__tbody__td__category link" do
+              = link_to item_path, class: "item-content__detail-table__tbody__td__category link" do
                 = icon "fas", "angle-right"
                 %span
                   孫カテゴリー
@@ -99,7 +100,11 @@
             （税込）
           %span.item-content__price__box__shipping-charge
             = @item.shipping_charge
-      = link_to "購入画面に進む", item_path, method: :get,  class: "item-content__buy-btn btn-red link"
+    - if current_user.id == @item.seller_id
+      = link_to "商品の編集", edit_item_path, class: "item-content__buy-btn btn-red link"
+      = link_to "この商品を削除する", item_path, method: :delete, class: "item-content__buy-btn btn-red link"
+    - else
+      = link_to "購入画面に進む", confirm_buy_item_path, class: "item-content__buy-btn btn-red link", as: "item"
       / 説明文
       .item-content__description
         %p.item-content__description-inner

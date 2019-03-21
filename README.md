@@ -25,13 +25,13 @@
 - has_many :news
 - has_many :todos
 - has_many :rates
-- has_many :trades
 - has_many :item_comments
 - has_many :bought_items, foreign_key: "buyer_id", class_name: "Item"
 - has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
 - has_many :sold_items, -> { where("buyer_id is not NULL") }, foreign_key: "seller_id", class_name: "Item"
 - has_many :likes, dependent: :destroy
 - has_many :liked_items, through: :likes, source: :item
+- has_many :payments
 ***
 
 ## addressesテーブル
@@ -102,7 +102,6 @@
 |user_id|reference|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
 - belongs_to :item
 - has_many :tradecomments
 - has_one :rate
@@ -159,7 +158,7 @@
 - belongs_to :item, dependent: :destroy
 ***
 
-## categoriesテーブル（中間テーブル）
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |parent_id|integer|
@@ -170,7 +169,7 @@
 - has_many :items, through: :item_categories
 ***
 
-## item_categoriesテーブル
+## item_categoriesテーブル（中間テーブル）
 |item_id|reference|null: false, foreign_key: true|
 |category_id|reference|null: false, foreign_key: true|
 
@@ -204,4 +203,13 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
+***
+
+### paymentsテーブル（190318追加）
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true, index: true|
+|customer_id|integer|null: false, foreign_key: true, index: true|
+### Association
+- belongs_to :user
 ***

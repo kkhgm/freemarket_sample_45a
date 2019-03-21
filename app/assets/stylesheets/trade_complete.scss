@@ -1,0 +1,17 @@
+@import "mixin/single-container";
+
+.trade-complete {
+  @include single-container;
+  &__head {
+    height: 97px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 97px;
+    text-align: center;
+    border-bottom: 1px solid #F5F5F5;
+  }
+  &__box {
+    text-align: center;
+    padding: 64px;
+  }
+}

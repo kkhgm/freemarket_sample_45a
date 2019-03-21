@@ -31,6 +31,5 @@ Rails.application.routes.draw do
   end
   resource :address, except: [:destroy, :show]
   resources :users # 後でonly: [:show, :index]など追記予定
-  get 'privacy', to: 'users#privacy'
 
 end

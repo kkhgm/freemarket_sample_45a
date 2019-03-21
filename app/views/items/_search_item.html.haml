@@ -1,7 +1,8 @@
 %section.search-contents__container_main__item
   %a.search-contents__container_main__item__link
     %figure.search-contents__container_main__item__link_figure
-      = image_tag("cap", :class => "search-contents__container_main__item__link_figure_img")
+      = link_to item_path(item) do
+        = image_tag("cap", :class => "search-contents__container_main__item__link_figure_img")
   .search-contents__container_main__item_text
     .search-contents__container_main__item_text_name
       %h3= item.name

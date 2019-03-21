@@ -5,7 +5,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def privacy
-  end
-
 end

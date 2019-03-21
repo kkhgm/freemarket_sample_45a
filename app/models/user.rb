@@ -10,8 +10,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   def self.from_omniauth(auth)
+    user = User.find_by(email: auth.info.email)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first
-    unless sns
+    if sns == nil && user == nil
       @user = User.new(
         nickname: auth.info.name,
         email: auth.info.email,
@@ -24,6 +25,13 @@ class User < ApplicationRecord
         uid: auth.uid
         )
       @user = User.find(@sns.user_id)
+    elsif sns == nil && user
+      @user = User.find_by(email: auth.info.email)
+      @sns = SnsCredential.create(
+        user_id: @user.id,
+        provider: auth.provider,
+        uid: auth.uid
+        )
     else
       @user = User.find(sns.user_id)
     end

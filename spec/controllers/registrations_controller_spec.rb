@@ -58,26 +58,4 @@ RSpec.describe Users::RegistrationsController, type: :controller do
       end
     end
   end
-
-  describe 'sns認証で新規登録' do
-    before do
-      OmniAuth.config.mock_auth[:facebook] = nil
-      Rails.application.env_config['omniauth.auth'] = facebook_mock
-      visit new0_user_registration_path
-      find(".btn.facebook-btn").click
-      # click_on "Facebookで登録"
-    end
-    it "サインアップするとユーザーが増える" do
-      expect{
-        find(".btn.facebook-btn").click
-      }.to change(User, :count).by(1)
-    end
-
-    it "すでに連携されたユーザーがサインアップしようとするとユーザーは増えない" do
-      find(".btn.facebook-btn").click
-      expect{
-        find(".btn.facebook-btn").click
-      }.not_to change(User, :count)
-    end
-  end
 end

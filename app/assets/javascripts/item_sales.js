@@ -1,10 +1,10 @@
 document.addEventListener('turbolinks:load', function() {
   $(function(){
-    function buildChild(){
+    function buildChild(cateChild){
       var html =`<select class="item-contents__item-about_box_condition_input" id="child" name="item[item_categories_attributes][0][category_id]"></select>`
       return html;}
 
-    function buildGrandChild(){
+    function buildGrandChild(cateChild){
       var html =`<select class="item-contents__item-about_box_condition_input" id="grand_child" name="item[item_categories_attributes][0][category_id]"></select>`
       return html;}
 
@@ -23,8 +23,6 @@ document.addEventListener('turbolinks:load', function() {
 
     // 親カテゴリ選択時子カテゴリの表示を行う
     $("#parent").on("change", function(){
-    $('#child').remove();
-    $('#grand_child').remove();
       var val = $("#parent").val();
 
       $.ajax({
@@ -34,6 +32,9 @@ document.addEventListener('turbolinks:load', function() {
         dataType: 'json'
       })
       .done(function(cateChilds) {
+        // セレクトフォーム有無の確認
+        var comform = document.getElementById('child');
+        if (comform == null) {
           // セレクトフォームの作成
           var html = buildChild();
           $('.item-contents__item-about_box_category').append(html)
@@ -43,7 +44,6 @@ document.addEventListener('turbolinks:load', function() {
           $('#child').append(option);
           })
            $("#child").on("change", function(){
-           $('#grand_child').remove();
            var val = $("#child").val();
 
           $.ajax({
@@ -53,6 +53,9 @@ document.addEventListener('turbolinks:load', function() {
             dataType: 'json'
           })
           .done(function(cateGrandChildren) {
+          // セレクトフォーム有無の確認
+          var comform = document.getElementById('grand_child');
+          if (comform == null) {
             // セレクトフォームの作成
             var html = buildGrandChild();
             $('.item-contents__item-about_box_category').append(html)
@@ -61,8 +64,10 @@ document.addEventListener('turbolinks:load', function() {
             var option = buildOption(cateGrandChild);
             $('#grand_child').append(option)
             })
+          }
           })
         });
+       }
       });
     })
   });

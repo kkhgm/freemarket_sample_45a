@@ -10,7 +10,6 @@
         .item-contents__image_drop-box
           = fin.label :image, :class => "item-contents__image_drop-box_label", :id => "droparea"
           = fin.file_field :image, :class => "item-contents__image_drop-box_click"
-
     .item-contents__item-info
       .item-contents__item-info_name
         %h4 商品名
@@ -29,7 +28,7 @@
 
           = f.fields_for :item_categories do |fin|
             = icon "fas", "angle-down", :class => "select_icon"
-            = fin.select :category_id, options_from_collection_for_select(@categories, :id, :name),{}, :class => "item-contents__item-about_box_condition_input", :id => "parent"
+            = fin.select :category_id, options_from_collection_for_select(@categories, :id, :name),{}, :class => "item-contents__item-about_box_condition_input", :id => "parent", value: "#{@item.categories}"
 
         .item-contents__item-about_box_condition
           %h4 商品の状態

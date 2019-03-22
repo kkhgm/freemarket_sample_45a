@@ -1,18 +1,126 @@
 = render partial: "layouts/main-header"
 .search-contents.clearfix
-	.search-contents__side-bar
-		%form.search-contents__side-bar__form
-			.search-contents__side-bar__form_sort
-			.search-contents__side-bar__form_box
-	.search-contents__container
-		%section.search-contents__container_top
-		%h2.search-contents__container_top_result 検索結果 #{@items.length}件
-		- if @newitems
-			%p.search-contents__container_top_message 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
-			%h3.search-contents__container_top_title 新着商品
-			.search-contents__container_main
-				= render partial: "search_item", collection: @newitems, as: :item
-		- else
-			.search-contents__container_main
-				= render partial: "search_item", collection: @items, as: :item
+  .search-contents__side-bar
+    = search_form_for @search, url: search_items_path, :class => "search-contents__side-bar__form" do |f|
+      .search-contents__side-bar__form_sort
+        %h4 表示の並び替え
+        = sort_link @search, :price, hide_indicator: true do
+          %p 価格
+        = sort_link @search, :created_at, hide_indicator: true do
+          %p 出品日
+      .search-contents__side-bar__form_box
+        %h4 詳細検索
+        .search-contents__side-bar__form_box_keyword.form_top
+          #{icon "fas", "plus"}
+          %span.form_top_title キーワードを追加する
+          = f.search_field :name_or_description_cont, placeholder: "例）値下げ",class: "form_group_box"
+        .search-contents__side-bar__form_box_category.form_group
+          #{icon "fas", "list-ul"}
+          %span.form_group_title カテゴリーを追加する
+          .for-icon_categories_parent
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+            = f.collection_select :categories_id_eq, @categories_parent, :id, :name,{include_blank: 'すべて'}, class: "form_group_select"
+          .for-icon_categories_child
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+            = f.collection_select :categories_id_eq, @categories_child, :id, :name, {include_blank: 'すべて'}, class: "form_group_select"
+          .for-icon_categories_grandchild
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+            = f.collection_select :categories_id_eq, @categories_grandchild, :id, :name,{include_blank: 'すべて'},class: "form_group_select"
+        .search-contents__side-bar__form_box_bland.form_group
+          #{icon "fas", "tag"}
+          %span.form_group_title ブランド名から探す
+          .for-icon_bland
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+            = f.search_field :name_cont, class: "form_group_box"
+        / .search-contents__side-bar__form_box_keyword.form_group
+        / 	#{icon "fas", "expand"} サイズを指定する
+        / 	= f.collection_select :name_cont
+        .search-contents__side-bar__form_box_price.form_group
+          #{icon "fas", "coins"}
+          %span.form_group_title 価格
+          %br
+          .for-icon_price
+            = f.select :price, [["300~1000","1"],["1000~5000","2"],["5000~10000","3"],["10000~30000","4"],["30000~50000","5"],["50000~","6"]],{:prompt => "選択してください"}, {id: "price", class: "form_group_select"}
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+          = f.number_field :price_gteq, {class: "price_min form_group_box_price",placeholder: "¥Min",value: ""}
+          %span.form_group_span ~
+          = f.number_field :price_lteq, class: "price_max form_group_box_price", placeholder: "¥Max"
+        .search-contents__side-bar__form_box_condition.form_group
+          #{icon "fas", "star"}
+          %span.form_group_title 商品の状態
+          .check-box
+            .check-box__box
+              = f.check_box :condition
+              = f.label :condition, "すべて"
+            .check-box__box
+              = f.check_box :condition_eq_any, {multiple: true, id: "condition1"}, "新品、未使用", ""
+              = f.label :condition_eq_any, "新品、未使用", {for: "condition1"}
+            .check-box__box
+              = f.check_box :condition_eq_any, {multiple: true, id: "condition2"}, "未使用に近い", ""
+              = f.label :condition_eq_any, "未使用に近い", {for: "condition2"}
+            .check-box__box
+              = f.check_box :condition_eq_any, {multiple: true, id: "condition3"}, "目立った傷や汚れなし", ""
+              = f.label :condition_eq_any, "目立った傷や汚れなし", {for: "condition3"}
+            .check-box__box
+              = f.check_box :condition_eq_any, {multiple: true, id: "condition4"}, "やや傷や汚れあり", ""
+              = f.label :condition_eq_any, "やや傷や汚れあり", {for: "condition4"}
+            .check-box__box
+              = f.check_box :condition_eq_any, {multiple: true, id: "condition5"}, "傷や汚れあり", ""
+              = f.label :condition_eq_any, "傷や汚れあり", {for: "condition5"}
+            .check-box__box
+              = f.check_box :condition_eq_any, {multiple: true, id: "condition6"}, "全体的に状態が悪い", ""
+              = f.label :condition_eq_any, "全体的に状態が悪い", {for: "condition6"}
+        .search-contents__side-bar__form_box_sipping_charge.form_group
+          #{icon "fas", "truck"}
+          %span.form_group_title 配送料の負担
+          %br
+          .check-box
+            .check-box__box
+              = f.check_box :shipping_charge, {id: "shipping_charge1"}
+              = f.label :shipping_charge, "すべて", {for: "shipping_charge1"}
+            .check-box__box
+              = f.check_box :shipping_charge_eq_any, {multiple: true, id: "shipping_charge2"}, "送料込み", ""
+              = f.label :shipping_charge_eq_any, "送料込み（出品者負担）", {for: "shipping_charge2"}
+            .check-box__box
+              = f.check_box :shipping_charge_eq_any, {multiple: true,id: "shipping_charge3"}, "着払い", ""
+              = f.label "着払い（購入者負担）", {for: "shipping_charge3"}
+        .search-contents__side-bar__form_box_status.form_group
+          #{icon "fas", "shopping-cart"}
+          %span.form_group_title 販売状況
+          %br
+          .check-box
+            .check-box__box
+              = f.check_box :name, {id: "name1"}, true, false
+              = f.label :name, "すべて",{for: "name1"}
+            .check-box__box
+              = f.check_box :name, {id: "name2"}, true, false
+              = f.label :name, "販売中",{for: "name2"}
+            .check-box__box
+              = f.check_box :name, {id: "name3"}, true, false
+              = f.label :name, "売り切れ",{for: "name3"}
+        .search-contents__side-bar__form_box_btns
+          = link_to "クリア", request.path, class: "search-contents__side-bar__form_box_btns_clear-btn"
+          = f.submit "完了", class:"search-contents__side-bar__form_box_btns_finish-btn"
+  .search-contents__container
+    - if @items.length != 0
+      %section.search-contents__container_top
+      %h2.search-contents__container_top_result 検索結果  #{@items.offset_value}-#{@items.offset_value + @items.length}件
+      .search-contents__container_main
+        = render partial: "search_item", collection: @items, as: :item
+        = paginate @items
+    - elsif @items.length == 0 && @products.length != 0
+      %section.search-contents__container_top
+      %h2.search-contents__container_top_result 検索結果 #{@products.offset_value}-#{@products.offset_value + @products.length}件
+      .search-contents__container_main
+        = render partial: "search_item", collection: @products, as: :item
+        = paginate @products
+    - else
+      %section.search-contents__container_top
+      %h2.search-contents__container_top_result 検索結果 0件
+      %p.search-contents__container_top_message 該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
+      %h3.search-contents__container_top_title 新着商品
+      .search-contents__container_main
+        = render partial: "search_item", collection: @newitems, as: :item
+        = paginate @newitems
+
 = render partial: "layouts/main-footer"

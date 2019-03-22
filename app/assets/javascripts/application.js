@@ -15,4 +15,7 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
+//= require rails-ujs
+//= require bxslider
 //= require_tree .
+

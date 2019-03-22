@@ -1,7 +1,18 @@
 = render partial: "layouts/main-header"
 
 .contents
-  .contents__top__image-box
+  .contents__top
+    / %label{:for => "#next-btn"}
+    /   = icon "fas", "chevron-right", :class => "contents__top_next-btn"
+    / %label{:for => "#prev-btn"}
+    /   = icon "fas", "chevron-left", :class => "contents__top_prev-btn"
+    %ul.contents__top__image-box
+      %li
+        = image_tag("/images/top_image1.jpg")
+      %li
+        = image_tag("/images/top_image2.jpg")
+      %li
+        = image_tag("/images/top_image3.jpg")
   .contents__container
     %h2.contents__container_title ピックアップカテゴリー
     .contents__container__item__box

@@ -18,6 +18,7 @@
           #{icon "fas", "list-ul"}
           %span.form_group_title カテゴリーを追加する
           .for-icon_categories_parent
+<<<<<<< HEAD
             #{icon "fas", "angle-down", :class => "select_icon"}
             = f.collection_select :categories_id_eq, @categories_parent, :id, :name,{include_blank: 'すべて'}, class: "form_group_select"
           .for-icon_categories_child
@@ -25,12 +26,25 @@
             = f.collection_select :categories_id_eq, @categories_child, :id, :name, {include_blank: 'すべて'}, class: "form_group_select"
           .for-icon_categories_grandchild
             #{icon "fas", "angle-down", :class => "select_icon"}
+=======
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+            = f.collection_select :categories_id_eq, @categories_parent, :id, :name,{include_blank: 'すべて'}, class: "form_group_select"
+          .for-icon_categories_child
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+            = f.collection_select :categories_id_eq, @categories_child, :id, :name, {include_blank: 'すべて'}, class: "form_group_select"
+          .for-icon_categories_grandchild
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+>>>>>>> origin/master
             = f.collection_select :categories_id_eq, @categories_grandchild, :id, :name,{include_blank: 'すべて'},class: "form_group_select"
         .search-contents__side-bar__form_box_bland.form_group
           #{icon "fas", "tag"}
           %span.form_group_title ブランド名から探す
           .for-icon_bland
+<<<<<<< HEAD
             #{icon "fas", "angle-down", :class => "select_icon"}
+=======
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+>>>>>>> origin/master
             = f.search_field :name_cont, class: "form_group_box"
         / .search-contents__side-bar__form_box_keyword.form_group
         / 	#{icon "fas", "expand"} サイズを指定する
@@ -41,7 +55,11 @@
           %br
           .for-icon_price
             = f.select :price, [["300~1000","1"],["1000~5000","2"],["5000~10000","3"],["10000~30000","4"],["30000~50000","5"],["50000~","6"]],{:prompt => "選択してください"}, {id: "price", class: "form_group_select"}
+<<<<<<< HEAD
             #{icon "fas", "angle-down", :class => "select_icon"}
+=======
+            #{icon "fas", "angle-down", :class => "search_select_icon"}
+>>>>>>> origin/master
           = f.number_field :price_gteq, {class: "price_min form_group_box_price",placeholder: "¥Min",value: ""}
           %span.form_group_span ~
           = f.number_field :price_lteq, class: "price_max form_group_box_price", placeholder: "¥Max"

@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :trades
   end
   resource :address, except: [:destroy, :show]
+  resources :users # 後でonly: [:show, :index]など追記予定
+
   resources :users do
     resources :payments
   end

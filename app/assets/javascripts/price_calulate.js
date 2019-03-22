@@ -1,7 +1,7 @@
 document.addEventListener('turbolinks:load', function() {
   $(function() {
     $(".item-contents__price_box_list_top_right_input").on('keyup', function(e){
-      // e.preventDefault();
+      e.preventDefault();
       var count = $(this).val();
       if(count >= 300){
         var cut = count * 0.1

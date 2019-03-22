@@ -1,7 +1,7 @@
 %section.contents__container__item__box__items__item
   = link_to item_path(item), method: :get, class: "contents__container__item__box__items__item__link" do
     %figure.contents__container__item__box__items__item__link_figure
-      = image_tag(item.itemimages.first.image.url, class: "contents__container__item__box__items__item__link_figure_img" )
+      = image_tag(item.itemimages.first.image.url, :class => "contents__container__item__box__items__item__link_figure_img")
     .contents__container__item__box__items__item_text
       %h3= item.name
       .contents__container__item__box__items__item_text_item-box

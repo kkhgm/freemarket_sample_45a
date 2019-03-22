@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.build_trade(status: "出品中")
     if @item.save
       redirect_to controller: :items, action: :index
     else

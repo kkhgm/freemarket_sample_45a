@@ -12,9 +12,12 @@
       / 画像
       .item-content__photos
         .item-content__photo
-          .item-content__photo.active
+          .item-content__photo--active
+          - if @item.trade.status == "取引完了"
+            .item-content__photo__sold-out-badge
+              .item-content__photo__sold-out-badge__text SOLD
             / = image_tag(@itemimage.image.url, class: "display-image" )
-            = image_tag(@itemimage.first.image.url, class: "display-image" )
+          = image_tag(@itemimage.first.image.url, class: "display-image" )
           .item-content__photo.other
             = render partial: "itemimages", collection: @itemimages, as: :itemimage
 
@@ -111,9 +114,9 @@
     - else
       = link_to "購入画面に進む", confirm_buy_item_path, class: "item-content__buy-btn btn-red link", as: "item"
       / 説明文
-      .item-content__description
-        %p.item-content__description-inner
-          = @item.description
+    .item-content__description
+      %p.item-content__description-inner
+        = @item.description
       / いいねボタン、不適切ボタン
       .item-content__item-btn
         .item-content__item-btn__left
@@ -134,23 +137,23 @@
             %span.item-content__item-btn__right__text
               あんしん・あんぜんへの取り組み
       / 商品へのコメント
-- if user_signed_in?
-  .item-comment-container
-    .item-comment-container__content
-      / form_with使う?
-      %form.item-comment-container__content__form
-        %p.item-comment-container__content__form__text
-          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        / f.text-field使う
-        %textarea.item-comment-container__content__form__textarea.textarea-default
-      - if @item.trade.status == "出品中"
-        = link_to item_path, method: :get, class: "item-comment-container__content__form__submit btn btn-gray link" do
-          %p.item-comment-container__content__form__submit__text
-            コメントする
-      - else
-        .item-comment-container__content__form__submit.btn.btn-gray.sold-out
-          %p.item-comment-container__content__form__submit__text
-            売り切れのためコメントできません
+  - if user_signed_in?
+    .item-comment-container
+      .item-comment-container__content
+        / form_with使う?
+        %form.item-comment-container__content__form
+          %p.item-comment-container__content__form__text
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          / f.text-field使う
+          %textarea.item-comment-container__content__form__textarea.textarea-default
+        - if @item.trade.status == "出品中"
+          = link_to item_path, method: :get, class: "item-comment-container__content__form__submit btn btn-gray link" do
+            %p.item-comment-container__content__form__submit__text
+              コメントする
+        - else
+          .item-comment-container__content__form__submit.btn.btn-gray.sold-out
+            %p.item-comment-container__content__form__submit__text
+              売り切れのためコメントできません
   / 前後ページリンク
   %ul.item-page-link
     %li.item-page-link__prev

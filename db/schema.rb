@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2019_04_06_052545) do
     t.string "shipping_charge", null: false
     t.string "ship_from_region", null: false
     t.string "shipping_date", null: false
-    t.integer "price"
+    t.integer "price", null: false
     t.integer "seller_id", null: false
     t.integer "buyer_id"
     t.datetime "created_at", null: false

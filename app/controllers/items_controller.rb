@@ -55,10 +55,10 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.where("name LIKE :text OR description LIKE :text", text: "%#{params[:text]}%").order("created_at DESC").page(params[:page]).per(1)
+    @items = Item.where("name LIKE :text OR description LIKE :text", text: "%#{params[:text]}%").order("created_at DESC").page(params[:page]).per(48)
     if params[:text].present? == false
       @items = []
-      @newitems = Item.all.order("created_at DESC").limit(48).page(params[:page]).per(1)
+      @newitems = Item.all.order("created_at DESC").limit(48).page(params[:page]).per(48)
     end
     @products = ""
     @search = Item.ransack(params[:q])
@@ -70,7 +70,7 @@ class ItemsController < ApplicationController
     if params[:q] == nil
       Item.none
     else
-      @search.result(distinct: true).limit(48).page(params[:page]).per(1)
+      @search.result(distinct: true).limit(48).page(params[:page]).per(48)
     end
   end
 

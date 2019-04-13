@@ -158,6 +158,18 @@
 - belongs_to :item, dependent: :destroy
 ***
 
+## commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|reference|foreign_key: true|
+|item_id|reference|foreign_key: true|
+|text|text|null: false|
+
+### Association
+- belongs_to :user, dependent: :destroy
+- belongs_to :item, dependent: :destroy
+***
+
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|

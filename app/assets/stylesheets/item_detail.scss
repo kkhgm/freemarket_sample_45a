@@ -240,6 +240,74 @@ table, tbody, tr, th, td {
   }
 }
 
+.item__comments {
+  width: $single-width;
+  margin: 8px auto;
+  background-color: white;
+  .item__comment {
+    overflow: hidden;
+    padding: 20px 30px;
+    &__left {
+      float: left;
+      width: 7%;
+      &-icon img {
+        border-radius: 50%;
+      }
+      &-seller {
+        background-color: #eee;
+        font-size: 12px;
+        padding: 4px;
+        margin-top: 5px;
+        border-radius: 2px;
+      }
+    }
+    &__right {
+      float: right;
+      width: 91%;
+      position: relative;
+      &-name {
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      &-balloon {
+        color: #eee;
+        font-size: 50px;
+        transform: rotate(160deg) rotateY(180deg);
+        float: left;
+        position: absolute;
+        top: 18px;
+        right: 533px;
+      }
+      &-comment {
+        background-color: #eee;
+        padding: 15px;
+        border-radius: 14px;
+        letter-spacing: 1px;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        p {
+          padding-bottom: 10px;
+        }
+        .comment-clock {
+          color: #aaa;
+          float: left;
+        }
+        .comment-flag {
+          float: right;
+          color: #aaa;
+        }
+      }
+    }
+  }
+  .item__comment:first-of-type {
+    padding-top: 30px;
+  }
+  .item__comment:last-of-type {
+    padding-bottom: 30px;
+  }
+}
+
 .item-comment-container {
   width: $single-width;
   margin: $margin-auto;

@@ -35,7 +35,7 @@ class Item < ApplicationRecord
   has_one :region
   has_many :itemimages, dependent: :destroy
   has_one :trade
-
+  has_many :comments
   has_many :item_categories, dependent: :destroy
   accepts_nested_attributes_for :item_categories
   has_many :categories, through: :item_categories

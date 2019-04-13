@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
     @itemimage = Itemimage.where(item_id: @item)
     @itemimages = Itemimage.where("item_id = ?", @item).limit(10)
     @category = @item.categories
+    @comments = Comment.where(item_id: @item)
   end
 
   def edit

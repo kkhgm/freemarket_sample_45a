@@ -35,5 +35,11 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :payments
+    get 'selling', on: :member
+    get 'trading', on: :member
+    get 'sold', on: :member
+
+    get 'buying', on: :member
+    get 'bought', on: :member
   end
 end

@@ -24,4 +24,28 @@ class UsersController < ApplicationController
     params.require(:user).permit(:nickname, :introduction)
   end
 
+  def selling
+    @user = User.find(params[:id])
+    @set_items = Item.where(seller_id: @user).includes(:trade)
+  end
+
+  def trading
+    @user = User.find(params[:id])
+    @set_items = Item.where(seller_id: @user).includes(:trade)
+  end
+
+  def sold
+    @user = User.find(params[:id])
+    @set_items = Item.where(seller_id: @user).includes(:trade)
+  end
+
+  def buying
+    @user = User.find(params[:id])
+    @set_items = Item.where(seller_id: @user).includes(:trade)
+  end
+
+  def bought
+    @user = User.find(params[:id])
+    @set_items = Item.where(seller_id: @user).includes(:trade)
+  end
 end

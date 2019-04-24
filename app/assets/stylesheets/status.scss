@@ -1,0 +1,22 @@
+.mypage-content__box{
+  height: 70px;
+  padding: 10px;
+  border-bottom: solid thin #eee;
+  &__image{
+    float: left;
+    width: 48px;
+    height: 48px;
+    background-color: blue;
+  }
+  &__list{
+    margin-left: 60px;
+    margin-top: 10px;
+    &__text{}
+    &__status{
+      margin: 10px 0;
+      span{
+      margin-right: 5px;
+      }
+    }
+  }
+}

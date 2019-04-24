@@ -19,32 +19,33 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+
+  def selling
+    sets_user_state
+  end
+
+  def trading
+    sets_user_state
+  end
+
+  def sold
+    sets_user_state
+  end
+
+  def buying
+    sets_user_state
+  end
+
+  def bought
+    sets_user_state
+  end
+
+private
   def user_profile_params
     params.require(:user).permit(:nickname, :introduction)
   end
 
-  def selling
-    @user = User.find(params[:id])
-    @set_items = Item.where(seller_id: @user).includes(:trade)
-  end
-
-  def trading
-    @user = User.find(params[:id])
-    @set_items = Item.where(seller_id: @user).includes(:trade)
-  end
-
-  def sold
-    @user = User.find(params[:id])
-    @set_items = Item.where(seller_id: @user).includes(:trade)
-  end
-
-  def buying
-    @user = User.find(params[:id])
-    @set_items = Item.where(seller_id: @user).includes(:trade)
-  end
-
-  def bought
+  def sets_user_state
     @user = User.find(params[:id])
     @set_items = Item.where(seller_id: @user).includes(:trade)
   end

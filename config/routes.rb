@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :items do
     get 'confirm_buy', on: :member
+    resource :comment, only: [:create]
     collection do
       get 'search'
       get 'catesearch'
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
     resources :trades
   end
   resource :address, except: [:destroy, :show]
-  resources :users # 後でonly: [:show, :index]など追記予定
+  resources :users, only: [:show, :edit, :destroy, :update]
 
   resources :users do
     resources :payments

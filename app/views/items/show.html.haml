@@ -137,23 +137,43 @@
             %span.item-content__item-btn__right__text
               あんしん・あんぜんへの取り組み
       / 商品へのコメント
+  .item__comments
+    - @comments.each do |comment|
+      .item__comment
+        .item__comment__left
+          .item__comment__left-icon
+            = image_tag("yu40ta-avatar.png", size: "40x40")
+          - if comment.user_id == comment.item.seller_id
+            .item__comment__left-seller
+              %p 出品者
+        .item__comment__right
+          .item__comment__right-name
+            %h2
+              = comment.user.nickname
+          .item__comment__right-comment
+            %p
+              = comment.text
+            = icon "far", "clock", class: "comment-clock"
+            %span.comment-clock
+              = date_format(comment.created_at)
+            = link_to item_path, method: :get, class: "comment-flag" do
+              = icon "far", "flag"
+          .item__comment__right-balloon
+            = icon "fas", "comment"
   - if user_signed_in?
     .item-comment-container
       .item-comment-container__content
         / form_with使う?
-        %form.item-comment-container__content__form
+        = form_with url: item_comment_path(@item, @comment), class: "item-comment-container__content__form", local: true do |f|
           %p.item-comment-container__content__form__text
             相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          / f.text-field使う
-          %textarea.item-comment-container__content__form__textarea.textarea-default
-        - if @item.trade.status == "出品中"
-          = link_to item_path, method: :get, class: "item-comment-container__content__form__submit btn btn-gray link" do
-            %p.item-comment-container__content__form__submit__text
-              コメントする
-        - else
-          .item-comment-container__content__form__submit.btn.btn-gray.sold-out
-            %p.item-comment-container__content__form__submit__text
-              売り切れのためコメントできません
+          = f.text_area :text, class: "item-comment-container__content__form__textarea textarea-default"
+          - if @item.trade.status == "出品中"
+            = f.submit "コメントする", class: "item-comment-container__content__form__submit btn btn-gray link"
+          - else
+            .item-comment-container__content__form__submit.btn.btn-gray.sold-out
+              %p.item-comment-container__content__form__submit__text
+                売り切れのためコメントできません
   / 前後ページリンク
   %ul.item-page-link
     %li.item-page-link__prev
@@ -237,5 +257,5 @@
                     7
                 %p.item-other__user-items__content__box__num__tax
                   (税込)
-
+.item-comment-container__content__form__submit__text
 = render partial: "layouts/main-footer"

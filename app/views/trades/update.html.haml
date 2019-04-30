@@ -1,7 +1,38 @@
 = render partial: "layouts/sub-header"
 
-.main.trade-complete
-  %h1.trade-complete__head ご購入ありがとうございました。
+.trade-complete
+  .trade-complete__message
+    %h4.trade-complete__message_box
+      %i
+      %span 発送をお待ちください
+      %p.trade-complete__message_text 出品者からの発送通知をお待ちください
+  %h1.trade-complete__head 購入が完了しました。
+  %section.trade-complete__box.item-info
+    .trade-complete__box__item
+      .trade-complete__box__item__inner
+        %h2.trade-complete__box__item__inner_image-box
+        %p.trade-complete__box__item__inner_name
   %section.trade-complete__box
-    = link_to "トップにもどる", root_path, class: "trade-complete__box__link"
+    .trade-complete__box__price
+      %p.trade-complete__box_text
+      %span.trade-complete__box__price_span
+  %section.trade-complete__box
+    .trade-complete__box__address
+      %h3.trade-complete__box_title 配送先
+      %address.trade-complete__box__address-title_info
+  %section.trade-complete__box
+    .trade-complete__box__method
+      %h3.trade-complete__box_title 支払い方法
+      %p.trade-complete__box_text
+      %figure.trade-complete__box__figure
+  %section.trade-complete__box
+    .trade-complete__box__flow
+      %h3.trade-complete__box_title 発送通知後の流れ
+      .trade-complete__box__flow_icon
+      %p.trade-complete__box_text 商品を受け取ったら
+      %br 出品者の評価をしましょう。
+      %br 購入代金が出品者に振り込まれます。
+      %br 評価後に取引は完了です。
+      = link_to "マイページにもどる", root_path, class: "trade-complete_link"
+
 = render partial: "layouts/sub-footer"

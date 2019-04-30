@@ -1,0 +1,58 @@
+= render partial: "layouts/main-header"
+
+%main.trade-container.clearfix
+  .responsive-bar
+    %section
+      %h3 取引情報
+      .trade-container__info
+        %dl.trade-container__info__list
+          %dt 商品
+          %dd #{@item.name}
+          %dt 送料
+          %dd #{@item.shipping_charge}
+          %dt 購入日時
+          %dd #{@trade.created_at}
+          %dt 商品ID
+          %dd #{@item.id}
+          %dt お届け先
+          %dd
+
+    %section.trade-container__figure
+      %h3 出品者情報
+      %figure.trade-container__info.trade-figure
+        %figcaption
+          = @seller.nickname
+
+  %section.trade-container__content
+    %h2 取引画面
+    .trade-container__content__messages
+      %ul.trade-container__content__lists
+        - @tradecomments.each do |tradecomment|
+          - if tradecomment.user_id == @buyer.id
+            %li.trade-buyer.clearfix
+              .trade-buyer__icon
+                =image_tag("blank_icon.png", :size => "40x40")
+              .trade-buyer__comment
+                = tradecomment.comment
+              .trade-buyer__nickname
+                = @buyer.nickname
+          - elsif tradecomment.user_id == @seller.id
+            %li.trade-seller.clearfix
+              .trade-seller__icon
+              .trade-seller__comment
+                = tradecomment.comment
+              .trade-seller__nickname
+                = @seller.nickname
+    .trade-container__content__messages
+      %p.alert 取引メッセージの内容は、必要に応じて事務局で確認しています
+      = form_for @tradecomment, url: item_trades_path do |f|
+        = f.text_field :comment
+        = f.submit "取引メッセージを送る", id: "tradecomment_submit"
+    .trade-container__content__messages
+      %p ＊お困りの際は
+      %a よくある質問
+      %p をご確認ください
+
+
+
+= render partial: "layouts/main-footer"
